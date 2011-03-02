@@ -1,0 +1,48 @@
+# Accepted.txt
+
+This file contains the grades of the P2 students 2011
+
+Please check your grades every week and inform us as soon as possible if 
+something is not correct. For admission to the exam 8 out of 10 exercises 
+need to be ok. Note that problemset 08 is mandatory for problemset 09.
+This means: without problemset 08 problemset 09 can't be completed and won't be graded too.
+
+-------------------------------------------------------------------------------
+
+                      a01   a02   a03   a04   a05   a06   a07   a08   a09   a10
+group02     	      nef
+group03  	      ok 
+group04               
+group05  	      ok 
+group06   	      nef
+group07		      nef
+group08      	      nef
+group09  
+group10               ok
+group11     	      ok   
+group12      	      ok 
+group13   	      ok
+group14      	      ok
+group15               ok
+group16  	      nef
+group17   	      nef
+group18   	      ok
+group19   	      ok
+group20   	      ok
+group21  	      ok
+group22  	      --
+group23       	      ok
+group24 	      nef 
+group25		      
+group26   	      nef 
+group27  
+group28   
+
+      ok:   accepted.
+     nef:   revision required by next week.
+    fail:   total failure. 
+      --:   nothing was submitted.
+     fix:   fixed problemset.
+      ++:   deadline prolonged.
+     wow:   Especially awesome solution.
+admitted:   admitted to the exam.
