@@ -45,7 +45,6 @@ Icon?
 .Trashes
 
 #Linux
-.*
 !.gitignore
 *~
 *.sw[a-p]
