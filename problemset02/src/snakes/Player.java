@@ -4,6 +4,7 @@ public class Player {
 	
 	private String name;
 	private ISquare square;
+	private Game game;
 
 	private boolean invariant() {
 		return name != null
@@ -16,6 +17,7 @@ public class Player {
 	}
 
 	public void joinGame(Game game) {
+		this.game=game;
 		square = game.firstSquare();
 		square.enter(this);	
 		assert invariant();
@@ -30,6 +32,11 @@ public class Player {
 		assert moves > 0;
 		square.leave(this);
 		square = square.moveAndLand(moves);
+		square.enter(this);
+	}
+	public void moveTo(int position){
+		square.leave(this);
+		square = game.getSquare(position);
 		square.enter(this);
 	}
 	

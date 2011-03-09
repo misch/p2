@@ -71,4 +71,9 @@ public class Square implements ISquare {
 	protected String player() {
 		return this.isOccupied() ? ("<" + this.player + ">") : "";
 	}
+
+	@Override
+	public boolean isLargeSquare() {
+		return false;
+	}
 }

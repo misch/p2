@@ -125,6 +125,12 @@ public class Game {
 	public void setSquareToSnake(int position, int transport) {
 		this.setSquare(position, new Snake(transport, this, position));
 	}
+	public void setSquareToLargeSquare(int position) {
+		this.setSquare(position, new LargeSquare(this, position));
+	}
+	public void setSquareToTrapDoor(int position, int transport) {
+		this.setSquare(position, new TrapDoor(this, position, transport+position));
+	}
 
 	public ISquare findSquare(int position, int moves) {
 		assert position + moves <= 2*size - 1; // can't go more than size-1 moves backwards past end
