@@ -10,31 +10,31 @@ This means: without problemset 08 problemset 09 can't be completed and won't be 
 -------------------------------------------------------------------------------
 
                       a01   a02   a03   a04   a05   a06   a07   a08   a09   a10
-group02     	      ok
-group03  	      ok 
-group04               
-group05  	      ok 
-group06   	      nef
+group02     	      ok    nef
+group03  	      ok    nef
+group04               ok    nef
+group05  	      ok    nef
+group06   	      nef   nef
 group07		      ok
-group08      	      nef
-group09  
-group10               ok
+group08      	      ok    nef
+group09  	      --    --
+group10               ok    nef
 group11     	      ok   
-group12      	      ok 
-group13   	      ok
-group14      	      ok
+group12      	      ok    nef
+group13   	      ok    nef
+group14      	      ok    nef
 group15               ok
-group16  	      nef
-group17   	      nef
-group18   	      ok
+group16  	      --    --
+group17   	      ok    nef
+group18   	      ok    nef	
 group19   	      ok
-group20   	      ok
-group21  	      ok
-group22  	      --
-group23       	      ok
-group24 	      nef 
-group25		      ok   
-group26   	      nef 
+group20   	      ok    --
+group21  	      ok    nef
+group22  	      --    --
+group23       	      ok    nef
+group24 	      --    --
+group25		      ok    nef
+group26   	      --    --
 group27  
 group28   
 
