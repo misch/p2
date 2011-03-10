@@ -27,7 +27,7 @@ group15               ok
 group16  	      --    --
 group17   	      ok    nef
 group18   	      ok    nef	
-group19   	      ok
+group19   	      ok    nef
 group20   	      ok    --
 group21  	      ok    nef
 group22  	      --    --
