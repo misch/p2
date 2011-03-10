@@ -10,16 +10,16 @@ This means: without problemset 08 problemset 09 can't be completed and won't be 
 -------------------------------------------------------------------------------
 
                       a01   a02   a03   a04   a05   a06   a07   a08   a09   a10
-group02     	      ok    nef
+group02     	      nef   nef
 group03  	      ok    nef
 group04               ok    nef
 group05  	      ok    nef
 group06   	      nef   nef
-group07		      ok
+group07		      ok    nef
 group08      	      ok    nef
 group09  	      --    --
 group10               ok    nef
-group11     	      ok   
+group11     	      ok    nef
 group12      	      ok    nef
 group13   	      ok    nef
 group14      	      ok    nef
