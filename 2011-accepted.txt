@@ -10,7 +10,7 @@ This means: without problemset 08 problemset 09 can't be completed and won't be 
 -------------------------------------------------------------------------------
 
                       a01   a02   a03   a04   a05   a06   a07   a08   a09   a10
-group02     	      nef   nef
+group02     	      ok    nef
 group03  	      ok    nef
 group04               ok    nef
 group05  	      ok    nef
@@ -28,11 +28,11 @@ group16  	      --    --
 group17   	      ok    nef
 group18   	      ok    nef	
 group19   	      ok    nef
-group20   	      ok    --
+group20   	      ok    nef
 group21  	      ok    nef
 group22  	      --    --
 group23       	      ok    nef
-group24 	      --    --
+group24 	      nef   --
 group25		      ok    nef
 group26   	      --    --
 group27  
