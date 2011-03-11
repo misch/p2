@@ -8,6 +8,7 @@ import org.junit.Test;
 
 import org.junit.runner.RunWith;
 
+//DR You tested all the functionality of the LargeSquares even with the String representation, well done!
 @RunWith(JExample.class)
 public class LargeSquareTest {
 	
@@ -29,6 +30,7 @@ public class LargeSquareTest {
 		return game;
 	}
 
+	//DR Excellent testing the String representation!
 	@Given("newGame")
 	public Game initialStrings(Game game) {
 		assertEquals("Jack", jack.toString());
@@ -49,6 +51,7 @@ public class LargeSquareTest {
 		return game;
 	}
 
+	//DR Excellent again!
 	@Given("move1jackToLargeSquare")
 	public Game move1strings(Game game) {
 		assertEquals("[1<Jill>]", game.firstSquare().toString());

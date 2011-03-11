@@ -49,6 +49,8 @@ public class TrapDoorTest {
 		assertEquals(jack, game.currentPlayer());
 		return game;
 	}
+	
+	//DR AWESOME I like new tests and they even check functionality of the TrapDoor.
 	@Given("jillToTrapDoor")
 	public Game checkStrings(Game game){
 		assertEquals("[2==>4]", game.getSquare(2).toString());

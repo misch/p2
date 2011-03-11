@@ -14,6 +14,7 @@ public class LargeSquare extends Square implements ISquare {
 		return this;
 	}
 	
+	//DR you don't have to override this method it's enough to override the representation of the player and the label!
 	public String toString() {
 		return "[" + this.squareLabel() + this.players() + "]";
 	}
