@@ -5,6 +5,10 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
+/*DR Fix problemset02 for next week! Correct and improve your Javadoc and make the impression that
+* you've read the style guide.
+* Your TrapDoor and LargeSquare work as intended and you fully tested the functionality of them.
+*/
 public class Game {
 	private List<ISquare> squares;
 	private int size;
@@ -124,6 +128,12 @@ public class Game {
 
 	public void setSquareToSnake(int position, int transport) {
 		this.setSquare(position, new Snake(transport, this, position));
+	}
+	public void setSquareToLargeSquare(int position) {
+		this.setSquare(position, new LargeSquare(this, position));
+	}
+	public void setSquareToTrapDoor(int position, int transport) {
+		this.setSquare(position, new TrapDoor(this, position, transport+position));
 	}
 
 	public ISquare findSquare(int position, int moves) {

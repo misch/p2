@@ -20,8 +20,8 @@ public class TrapDoorTest {
 		jill = new Player("Jill");
 		Player[] args = { jack, jill };
 		Game game = new Game(6, args);
+		game.setSquareToLargeSquare(4);//had to change the sequence, (no TrapDoor without LargeSquare)
 		game.setSquareToTrapDoor(2, 2);
-		game.setSquareToLargeSquare(4);
 		assertTrue(game.notOver());
 		assertTrue(game.firstSquare().isOccupied());
 		assertEquals(1, jack.position());
@@ -47,6 +47,14 @@ public class TrapDoorTest {
 		assertEquals(4, jack.position());
 		assertEquals(4, jill.position());
 		assertEquals(jack, game.currentPlayer());
+		return game;
+	}
+	
+	//DR AWESOME I like new tests and they even check functionality of the TrapDoor.
+	@Given("jillToTrapDoor")
+	public Game checkStrings(Game game){
+		assertEquals("[2==>4]", game.getSquare(2).toString());
+		assertEquals("[1][2==>4][3][|4|<Jack><Jill>][5][6]", game.toString());
 		return game;
 	}
 }
