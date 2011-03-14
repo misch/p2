@@ -34,7 +34,7 @@ group22  	      --    --
 group23       	      ok    nef
 group24 	      nef   --
 group25		      ok    nef
-group26   	      --    --
+group26   	      nef   --
 group27  
 group28   
 
