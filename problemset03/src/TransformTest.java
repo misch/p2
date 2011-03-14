@@ -51,7 +51,7 @@ public class TransformTest {
 	public void testRotateRadiansClockwise() {
 			transform.addTransformation("rotate 1.57079633 clockwise");
 			transform.getAffineTransform().transform(new Point2D.Double(1,1), target);
-			assertTrue(target.distance(new Point2D.Double(1,699)) < 0.01);
+			assertTrue(target.distance(new Point2D.Double(1,999)) < 0.01);
 	}
 	
 
@@ -59,7 +59,7 @@ public class TransformTest {
 	public void testRotateRadiansAnticlockwise()  {
 			transform.addTransformation("rotate 1.57079633 anticlockwise");
 			transform.getAffineTransform().transform(new Point2D.Double(1,-1), target);
-			assertTrue(target.distance(new Point2D.Double(701,1)) < 0.01);
+			assertTrue(target.distance(new Point2D.Double(1001,1)) < 0.01);
 		}
 	
 	@Test
