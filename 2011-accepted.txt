@@ -15,7 +15,7 @@ group03  	      ok    nef
 group04               ok    nef
 group05  	      ok    nef
 group06   	      nef   nef
-group07		      ok    nef
+group07		      ok    ok
 group08      	      ok    nef
 group09  	      --    --
 group10               ok    nef
@@ -30,13 +30,13 @@ group18   	      ok    nef
 group19   	      ok    nef
 group20   	      ok    nef
 group21  	      ok    nef
-group22  	      --    --
+group22  	      ---------------------------------------------------------
 group23       	      ok    nef
 group24 	      nef   --
 group25		      ok    nef
-group26   	      --    --
-group27  
-group28   
+group26   	      nef   --
+group27  	      ---------------------------------------------------------  
+group28  	      ---------------------------------------------------------   
 
       ok:   accepted.
      nef:   revision required by next week.
