@@ -1,17 +1,6 @@
 package snakes;
-/*DR Take a closer look at http://www.oracle.com/technetwork/java/javase/documentation/index-137868.html ,
-* (I know it starts boring but the rest is very interesting and important)
-*
-* It will tell you to start comments  “with a short summary of what the method/class does
-* containing a concise but complete description of the API item”. It also has examples of well-written API documentation.
-*
-* Write how some methods are connected and have a look @see also try to use tags like <i> </i> and <code> </code> and so on.
-*/
+//DR Accepted! Well done you used all the things I'd like to see and the comments tell more then the method name does!
 
-
-/*DR you have to make JavaDoc for the class itself too and try to point out how this class is used, what is important 
- * maybe you can even use {@link } to link to other classes using the Squares and so on
- */
 /**
  * Squares compose the board of a {@link Game}. They hold the {@link Player}s of a game and specify where a player has to go, if he moves.
  * <p>A square has to be in a valid position of a game
@@ -31,7 +20,7 @@ public interface ISquare {
 	/**
 	 * Finds out which square a {@link Player} will land on. 
 	 * Normally this is the square  <code>moves</code> steps ahead. If it isn't possible to enter this square (the square is occupied and not a largeSquare), it returns the square which it is to enter by using <code>landHereOrGoHome()</code>.
-	 * <p><code>moves</code> has to be �0.
+	 * <p><code>moves</code> has to be �0.
 	 * 
 	 * @param moves 	the number of squares the player should go forward
 	 * 
