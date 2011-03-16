@@ -8,7 +8,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class TransformTest {
-	
+
 	Transform transform;
 	
 	Point2D  target; //Bildpunkt
@@ -77,6 +77,7 @@ public class TransformTest {
 		assertTrue(target.distance(new Point2D.Double(8,8)) < 0.001);
 	}
 	
+	//DR you could add more tests for these things like translate with one input and so on
 	@Test
 	public void testWrongDescripton(){
 		transform.addTransformation("xyz");

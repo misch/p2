@@ -1,3 +1,4 @@
+//DR make JDoc out if this and it would be very nice!
 /* ShowImage.java
  * 
  * Authors: Michèle Wyss, Viviane Tanner
@@ -50,6 +51,7 @@ public class ShowImage extends Panel implements ActionListener {
 		
 	}
 	
+	//DR Good invariant but move it to the bottom
 	private boolean invariant()
 	{
 		return (image != null && transformator != null);

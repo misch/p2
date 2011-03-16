@@ -11,8 +11,23 @@ import java.awt.geom.AffineTransform;
 import java.awt.geom.Point2D;
 import java.awt.geom.Rectangle2D;
 
+/*DR Fix problemset03 for next week!
+ * 
+ * What's the scope of these variables?
+ * I need your UML and your contracts (see Oscar's slieds) to finish my corrections
+ * Also something is very wrong if you run ShowImage and then 
+ * 		- translate 100 50
+ * 		- scale 0.5 
+ * 		- rotate 1.5 
+ * 
+ * And your code is very noisy if I enter a wrong transformation one of the classes has to check it and 
+ * it should not throw an AssertionError it should throw an WrongStringException or something like that.
+ */
 public class Transform
 {
+	/*DR what's the scope of this variables? A lot instance variables always point to a so called god class
+	 * which is a code smell.
+	 */
 	String kindOfTransformation;
 	double translateArgument1;
 	double translateArgument2;
@@ -23,6 +38,7 @@ public class Transform
 	private Rectangle2D size;
 	private Rectangle2D containerSize;
 	
+	//DR what if there are more than two transformations have a look at the AffineTransform API (pre and concatenate!)
 	AffineTransform firstTrans = new AffineTransform();
 	AffineTransform scndTrans = new AffineTransform();
 	
@@ -34,6 +50,9 @@ public class Transform
 		assert invariant();
 	}
 	
+	/*DR I think invariant should to other things. 
+	 * Invariant always checks what has to be valid for this class! Like size != null and so on.
+	 */
 	private boolean invariant()
 	{
 		return isInWindow();
@@ -53,8 +72,11 @@ public class Transform
 		if (kindOfTransformation.equals("scale"))
 			firstTrans.scale(scaleArgument, scaleArgument);
 			
+		/*DR you even use the concatenate but you should have a look at preconcatenate too! 
+		 */
 		scndTrans.concatenate(firstTrans);
 		
+		//DR mhm you check isInWindow twice...
 		if (!isInWindow())
 		{
 			throw new RuntimeException();
@@ -62,6 +84,7 @@ public class Transform
 		assert invariant();
 	}
 
+	//DR nice getter!
 	public AffineTransform getAffineTransform()
 	{
 		return scndTrans;
@@ -70,6 +93,7 @@ public class Transform
 	//sets up the values of the requested transformation
 	private void prepareTransformation(String description)
 	{		
+		//DR AWESOME!
 		descriptionPartition = description.split(" ");
 				
 		kindOfTransformation = descriptionPartition[0];
@@ -86,6 +110,7 @@ public class Transform
 	
 	private boolean isInWindow()
 	{
+		//DR you could refactor a method out of your first four lines!
 		Point2D upperRight = new Point2D.Double(size.getMaxX(), size.getMaxY());
 		Point2D downRight = new Point2D.Double(size.getMaxX(), size.getMinY());
 		Point2D upperLeft = new Point2D.Double(size.getMinX(), size.getMaxY());
