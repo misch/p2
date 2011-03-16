@@ -1,3 +1,12 @@
+/* ShowImage.java
+ * 
+ * Authors: Michèle Wyss, Viviane Tanner
+ * 
+ * Responsibilities of class ShowImage:
+ * The class is responsible to make sure that there is an image and a transformation to be executed.
+ */
+
+
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -37,11 +46,17 @@ public class ShowImage extends Panel implements ActionListener {
 		image = ImageIO.read(s);
 		Rectangle2D imageContainerSize = new Rectangle2D.Double(0,0,SHOW_IMAGE_SIZE.getWidth(), SHOW_IMAGE_SIZE.getHeight());
 		Rectangle2D imageSize = new Rectangle2D.Double(0,0,image.getWidth(), image.getHeight());
-		transformator = //Modify here
+		transformator = new Transform(imageSize, imageContainerSize);
 		
+	}
+	
+	private boolean invariant()
+	{
+		return (image != null && transformator != null);
 	}
 
 	public void paint(Graphics g) {
+		assert invariant();
 		Graphics2D g2d = (Graphics2D)g; 
 		g2d.drawImage(image,transformator.getAffineTransform(),this);
 	}
@@ -80,6 +95,7 @@ public class ShowImage extends Panel implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		String description;
+		assert invariant();
 		try {
 			description = document.getText(0, document.getLength());
 		} catch (BadLocationException e) {
@@ -89,5 +105,6 @@ public class ShowImage extends Panel implements ActionListener {
 		transformator.addTransformation(description);
 
 		this.repaint();
+		assert invariant();
 	}
 }

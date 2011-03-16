@@ -11,15 +11,15 @@ public class TransformTest {
 	
 	Transform transform;
 	
-	Point2D  target;
-	Point2D  origin = new Point2D.Double(0,0);
+	Point2D  target; //Bildpunkt
+	Point2D  origin = new Point2D.Double(0,0); //Urbild mit Koordinaten 0,0
 	
 	@Before
 	public void setUp() {
-		Rectangle2D imageContainerSize = new Rectangle2D.Double(0,0,1000, 1000);
-		Rectangle2D imageSize = new Rectangle2D.Double(0,0,600, 600);
-		transform = //Modify here
-		target = new Point2D.Double();
+		Rectangle2D imageContainerSize = new Rectangle2D.Double(0,0,1000, 1000); //"Bilderrahmen"
+		Rectangle2D imageSize = new Rectangle2D.Double(0,0,600, 600); //Bildgrösse
+		transform = new Transform(imageSize, imageContainerSize);//Modify here //...?
+		target = new Point2D.Double(); //Bild = Punkt mit Koordinaten 0,0
 	}
 	
 	@After
@@ -49,7 +49,7 @@ public class TransformTest {
 	
 	@Test
 	public void testRotateRadiansClockwise() {
-			transform.addTransformation("rotate 1.57079633 clockwise");
+			transform.addTransformation("rotate 1.57079633 anticlockwise");
 			transform.getAffineTransform().transform(new Point2D.Double(1,1), target);
 			assertTrue(target.distance(new Point2D.Double(1,599)) < 0.01);
 	}
@@ -57,23 +57,37 @@ public class TransformTest {
 
 	@Test
 	public void testRotateRadiansAnticlockwise()  {
-			transform.addTransformation("rotate 1.57079633 anticlockwise");
+			transform.addTransformation("rotate 1.57079633 clockwise");
 			transform.getAffineTransform().transform(new Point2D.Double(1,-1), target);
 			assertTrue(target.distance(new Point2D.Double(601,1)) < 0.01);
 		}
 	
-	@Test
+	@Test (expected = RuntimeException.class)
 	public void testScale() {
 		transform.addTransformation("scale 2");
 		transform.getAffineTransform().transform(new Point2D.Double(2,3),target);
 		assertTrue(target.distance(new Point2D.Double(4,6)) < 0.001);
 	}
 	
-	@Test
+	@Test (expected = RuntimeException.class)
 	public void testTranslateThenScale() {
 		transform.addTransformation("translate 2 1"); 
 		transform.addTransformation("scale 2");
 		transform.getAffineTransform().transform(new Point2D.Double(2,3),target);
 		assertTrue(target.distance(new Point2D.Double(8,8)) < 0.001);
 	}
+	
+	@Test
+	public void testWrongDescripton(){
+		transform.addTransformation("xyz");
+		transform.getAffineTransform().transform(new Point2D.Double(5,5), target);
+		assertTrue(target.distance(new Point2D.Double(5,5)) < 0.001);
+	}
+	
+	
+	@Test (expected = RuntimeException.class)
+	public void testOutOfBounds(){
+		transform.addTransformation("scale 2");
+		transform.getAffineTransform().transform(new Point2D.Double(550, 550), target);
+		}
 }
