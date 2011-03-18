@@ -10,33 +10,33 @@ This means: without problemset 08 problemset 09 can't be completed and won't be 
 -------------------------------------------------------------------------------
 
                       a01   a02   a03   a04   a05   a06   a07   a08   a09   a10
-group02     	      ok    nef
-group03  	      ok    nef
-group04               ok    nef
-group05  	      ok    nef
-group06   	      ok   nef
-group07		      ok    ok
-group08      	      ok    nef
-group09  	      --    --
-group10               ok    nef
-group11     	      ok    nef
-group12      	      ok    nef
-group13   	      ok    nef
-group14      	      ok    wow
-group15               ok    nef
-group16  	      --    --
-group17   	      ok    nef
-group18   	      ok    nef	
-group19   	      ok    nef
-group20   	      ok    nef
-group21  	      ok    nef
-group22  	      ---------------------------------------------------------
-group23       	      ok    nef
-group24 	      nef   --
-group25		      ok    nef
-group26   	      nef   --
-group27  	      ---------------------------------------------------------  
-group28  	      ---------------------------------------------------------   
+group02               ok    nef   --
+group03               ok    ok    ok
+group04               ok    nef   nef
+group05               ok    nef   nef
+group06               ok    nef   nef
+group07               ok    ok    nef
+group08               ok    ok	  nef
+group09               --    --    --
+group10               ok    ok    
+group11     	      ok    ok    
+group12      	      ok    ok    
+group13               ok    ok    nef
+group14               ok    wow   nef
+group15               ok    ok    nef
+group16               --    --    --
+group17               ok    nef   
+group18               ok    nef	  nef
+group19               ok    ok    nef
+group20               ok    ok	  nef
+group21               ok    nef   nef
+group22     	      ---------------------------------------------------------
+group23      	      ok    nef   nef
+group24               nef   nef   nef	
+group25               ok    ok    nef
+group26               nef   nef	  --
+group27     	      ---------------------------------------------------------  
+group28      	      ---------------------------------------------------------  
 
       ok:   accepted.
      nef:   revision required by next week.
