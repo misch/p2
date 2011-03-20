@@ -9,7 +9,7 @@ import java.util.Queue;
 * you've read the style guide.
 * Your TrapDoor and LargeSquare work as intended and you fully tested the functionality of them.
 */
-public class Game {
+public class Game implements IDie {
 	private List<ISquare> squares;
 	private int size;
 	private Queue<Player> players;

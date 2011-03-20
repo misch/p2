@@ -16,7 +16,7 @@ public class LargeSquareTest {
 	private Player jill;
 
 	@Test
-	public Game newGame() {
+	public IDie newGame() {
 		jack = new Player("Jack");
 		jill = new Player("Jill");
 		Player[] args = { jack, jill };
@@ -32,7 +32,7 @@ public class LargeSquareTest {
 
 	//DR Excellent testing the String representation!
 	@Given("newGame")
-	public Game initialStrings(Game game) {
+	public IDie initialStrings(Game game) {
 		assertEquals("Jack", jack.toString());
 		assertEquals("Jill", jill.toString());
 		assertEquals("[1<Jack><Jill>]", game.firstSquare().toString());
@@ -42,7 +42,7 @@ public class LargeSquareTest {
 	}
 	
 	@Given("newGame")
-	public Game move1jackToLargeSquare(Game game) {
+	public IDie move1jackToLargeSquare(Game game) {
 		game.movePlayer(1);
 		assertTrue(game.notOver());
 		assertEquals(2, jack.position());
@@ -53,14 +53,14 @@ public class LargeSquareTest {
 
 	//DR Excellent again!
 	@Given("move1jackToLargeSquare")
-	public Game move1strings(Game game) {
+	public IDie move1strings(Game game) {
 		assertEquals("[1<Jill>]", game.firstSquare().toString());
 		assertEquals("[|2|<Jack>]", game.getSquare(2).toString());
 		return game;
 	}
 
 	@Given("move1jackToLargeSquare")
-	public Game move2jillToLargeSquare(Game game) {
+	public IDie move2jillToLargeSquare(Game game) {
 		game.movePlayer(1);
 		assertTrue(game.notOver());
 		assertEquals(2, jack.position());
@@ -70,7 +70,7 @@ public class LargeSquareTest {
 	}
 	
 	@Given("move2jillToLargeSquare")
-	public Game move3jackAwayFromLargeSquare(Game game) {
+	public IDie move3jackAwayFromLargeSquare(Game game) {
 		game.movePlayer(1);
 		assertTrue(game.notOver());
 		assertEquals(3, jack.position());

@@ -1,12 +1,10 @@
 //DR make JDoc out if this and it would be very nice!
 /* ShowImage.java
  * 
- * Authors: Michèle Wyss, Viviane Tanner
- * 
- * Responsibilities of class ShowImage:
- * The class is responsible to make sure that there is an image and a transformation to be executed.
- */
+ * Authors: Michèle Wyss, Viviane Tanner*/
 
+/**ShowImage is responsible to make sure that there is an image and a transformation to be executed.
+ * Its task is to display the image before and after the transformation has been executed.*/
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -51,12 +49,11 @@ public class ShowImage extends Panel implements ActionListener {
 		
 	}
 	
-	//DR Good invariant but move it to the bottom
 	private boolean invariant()
 	{
 		return (image != null && transformator != null);
 	}
-
+	
 	public void paint(Graphics g) {
 		assert invariant();
 		Graphics2D g2d = (Graphics2D)g; 

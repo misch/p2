@@ -11,15 +11,15 @@ public class TransformTest {
 
 	Transform transform;
 	
-	Point2D  target; //Bildpunkt
-	Point2D  origin = new Point2D.Double(0,0); //Urbild mit Koordinaten 0,0
+	Point2D  target;
+	Point2D  origin = new Point2D.Double(0,0);
 	
 	@Before
 	public void setUp() {
-		Rectangle2D imageContainerSize = new Rectangle2D.Double(0,0,1000, 1000); //"Bilderrahmen"
-		Rectangle2D imageSize = new Rectangle2D.Double(0,0,600, 600); //Bildgrösse
-		transform = new Transform(imageSize, imageContainerSize);//Modify here //...?
-		target = new Point2D.Double(); //Bild = Punkt mit Koordinaten 0,0
+		Rectangle2D imageContainerSize = new Rectangle2D.Double(0,0,1000, 1000);
+		Rectangle2D imageSize = new Rectangle2D.Double(0,0,600, 600);
+		transform = new Transform(imageSize, imageContainerSize);
+		target = new Point2D.Double();
 	}
 	
 	@After
@@ -62,33 +62,62 @@ public class TransformTest {
 			assertTrue(target.distance(new Point2D.Double(601,1)) < 0.01);
 		}
 	
-	@Test (expected = RuntimeException.class)
+	@Test
 	public void testScale() {
-		transform.addTransformation("scale 2");
+		transform.addTransformation("scale 0.5");
 		transform.getAffineTransform().transform(new Point2D.Double(2,3),target);
-		assertTrue(target.distance(new Point2D.Double(4,6)) < 0.001);
+		assertTrue(target.distance(new Point2D.Double(1,1.5)) < 0.001);
 	}
 	
-	@Test (expected = RuntimeException.class)
-	public void testTranslateThenScale() {
-		transform.addTransformation("translate 2 1"); 
-		transform.addTransformation("scale 2");
-		transform.getAffineTransform().transform(new Point2D.Double(2,3),target);
-		assertTrue(target.distance(new Point2D.Double(8,8)) < 0.001);
+	@Test
+	public void testScaleThenTranslate() {
+		transform.addTransformation("scale 0.5"); 
+		transform.addTransformation("translate 4 4");
+		transform.getAffineTransform().transform(new Point2D.Double(7,8),target);
+		assertTrue(target.distance(new Point2D.Double(7.5,8)) < 0.001);
 	}
-	
+	@Test
+	public void testSeveralTransformations(){
+		transform.addTransformation("scale 0.5");
+		transform.addTransformation("translate 50 50");
+		transform.addTransformation("scale 1.2");
+		transform.getAffineTransform().transform(new Point2D.Double(1,1), target);
+		assertTrue(target.distance(new Point2D.Double(60.6,60.6))< 0.001);
+	}
+		
+	@Test
+	public void testOutOfContainer(){
+		transform.addTransformation("transform 12 1");
+		transform.addTransformation("scale 2");
+		transform.getAffineTransform().transform(new Point2D.Double(2,3), target);
+		assertTrue(target.distance(new Point2D.Double(2,3)) < 0.001);
+	}
 	//DR you could add more tests for these things like translate with one input and so on
 	@Test
-	public void testWrongDescripton(){
+	public void testWrongDescripton1(){
 		transform.addTransformation("xyz");
 		transform.getAffineTransform().transform(new Point2D.Double(5,5), target);
-		assertTrue(target.distance(new Point2D.Double(5,5)) < 0.001);
+		assertTrue(target.distance(new Point2D.Double(5,5)) == 0);
 	}
 	
+	@Test
+	public void testWrongDescription2(){
+		transform.addTransformation("translate 4");
+		transform.getAffineTransform().transform(new Point2D.Double(3,4), target);
+		assertTrue(target.distance(new Point2D.Double(3,4)) == 0);
+	}
 	
-	@Test (expected = RuntimeException.class)
-	public void testOutOfBounds(){
-		transform.addTransformation("scale 2");
-		transform.getAffineTransform().transform(new Point2D.Double(550, 550), target);
-		}
+	@Test
+	public void testWrongDescription3(){
+		transform.addTransformation("rotate blabla");
+		transform.getAffineTransform().transform(new Point2D.Double(7,2), target);
+		assertTrue(target.distance(new Point2D.Double(7,2)) == 0);
+	}
+	
+	@Test
+	public void testWrongDescription4(){
+		transform.addTransformation("scale 4 whatEver");
+		transform.getAffineTransform().transform(new Point2D.Double(4,4), target);
+		assertTrue(target.distance(new Point2D.Double(4,4)) ==0);
+	}
 }

@@ -31,7 +31,7 @@ public class TrapDoorTest {
 	}
 	
 	@Given("newGame")
-	public Game jackToTrapDoor(Game game) {
+	public IDie jackToTrapDoor(Game game) {
 		game.movePlayer(1);
 		assertTrue(game.notOver());
 		assertEquals(2, jack.position());
@@ -41,7 +41,7 @@ public class TrapDoorTest {
 	}
 	
 	@Given("jackToTrapDoor")
-	public Game jillToTrapDoor(Game game) {
+	public IDie jillToTrapDoor(Game game) {
 		game.movePlayer(1);
 		assertTrue(game.notOver());
 		assertEquals(4, jack.position());
