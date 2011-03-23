@@ -1,4 +1,7 @@
+import static ch.viviandmisch.IsCloseTo.closeTo;
 import static org.junit.Assert.assertTrue;
+import static org.hamcrest.MatcherAssert.assertThat;
+
 
 import java.awt.geom.Point2D;
 import java.awt.geom.Rectangle2D;
@@ -6,6 +9,7 @@ import java.awt.geom.Rectangle2D;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+
 
 public class TransformTest {
 
@@ -66,7 +70,7 @@ public class TransformTest {
 	public void testScale() {
 		transform.addTransformation("scale 0.5");
 		transform.getAffineTransform().transform(new Point2D.Double(2,3),target);
-		assertTrue(target.distance(new Point2D.Double(1,1.5)) < 0.001);
+		assertTrue(target.distance (new Point2D.Double(1,1.5))<0.001);
 	}
 	
 	@Test
@@ -119,5 +123,35 @@ public class TransformTest {
 		transform.addTransformation("scale 4 whatEver");
 		transform.getAffineTransform().transform(new Point2D.Double(4,4), target);
 		assertTrue(target.distance(new Point2D.Double(4,4)) ==0);
+	}
+	
+	@Test
+	public void testScaleWithHamcrest() {
+		transform.addTransformation("scale 0.2");
+		transform.getAffineTransform().transform(new Point2D.Double(5,15), target);
+		assertThat(target, closeTo(new Point2D.Double(1,3)));
+	}
+	
+	@Test
+	public void testTranslateWithHamcrest(){
+		transform.addTransformation("translate 5 7");
+		transform.getAffineTransform().transform(new Point2D.Double(2,1), target);
+		assertThat(target, closeTo(new Point2D.Double(7,8)));
+	}
+	
+	@Test
+	public void testRotateClockwiseWithHamcrest() {
+			transform.addTransformation("rotate 1.57079633 anticlockwise");
+			transform.getAffineTransform().transform(new Point2D.Double(1,1), target);
+			assertThat(target, closeTo(new Point2D.Double(1,599)));
+	}
+	
+	@Test
+	public void testSeveralTransformationsWithHamcrest(){
+		transform.addTransformation("scale 0.5");
+		transform.addTransformation("translate 50 50");
+		transform.addTransformation("scale 1.2");
+		transform.getAffineTransform().transform(new Point2D.Double(1,1), target);
+		assertThat(target, closeTo(new Point2D.Double(60.6,60.6)));
 	}
 }

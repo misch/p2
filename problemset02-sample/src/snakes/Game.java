@@ -5,7 +5,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
-public class Game implements IDie {
+public class Game {
 	private List<ISquare> squares;
 	private int size;
 	private Queue<Player> players;

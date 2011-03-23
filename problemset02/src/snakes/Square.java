@@ -1,9 +1,14 @@
 package snakes;
 
+/**
+ * Knows about his <code>position</code>, the {@link Game} it is part of and the {@link Player}s standing on it.
+ * It tells if it can be landed on and if not, where the <code>player</code> has to land.
+ *
+ */
 public class Square implements ISquare {
 
 	protected int position;
-	protected Game game;
+	protected IGame game;
 	private Player player;
 
 	private boolean invariant() {
@@ -11,7 +16,7 @@ public class Square implements ISquare {
 			&& game.isValidPosition(position);
 	}
 
-	public Square(Game game, int position) {
+	public Square(IGame game, int position) {
 		this.game = game;
 		this.position = position;
 		assert invariant();

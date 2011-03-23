@@ -1,10 +1,15 @@
 package snakes;
 
+/**
+ * Knows about his <code>name</code> the {@link Game} and the {@link Square} it is in.
+ * Can join a game and move in it. The <code>Player</code> is the one who knows if he wins.
+ */
+
 public class Player {
 	
 	private String name;
 	private ISquare square;
-	private Game game;
+	private IGame game;
 
 	private boolean invariant() {
 		return name != null
@@ -16,7 +21,7 @@ public class Player {
 		// invariant holds only after joining a game
 	}
 
-	public void joinGame(Game game) {
+	public void joinGame(IGame game) {
 		this.game=game;
 		square = game.firstSquare();
 		square.enter(this);	

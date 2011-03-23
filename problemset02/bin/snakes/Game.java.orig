@@ -9,12 +9,16 @@ import java.util.Queue;
 * you've read the style guide.
 * Your TrapDoor and LargeSquare work as intended and you fully tested the functionality of them.
 */
+<<<<<<< HEAD
+public class Game implements IDie {
+=======
 
 /**
  * Sets up the board and initializes special <code>Square</code>s and manages the development of the game.
  * <p>Knows about the <code>Square</code>s order and the players in the game.
  */
 public class Game implements IGame {
+>>>>>>> origin/Problemset4
 	private List<ISquare> squares;
 	private int size;
 	private Queue<Player> players;

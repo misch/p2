@@ -2,11 +2,17 @@ package snakes;
 
 import java.util.ArrayList;
 
+/**
+ * A special {@link Square} that can hold several {@link Player}s at the same time
+ * instead of sending them back to the {@link FirstSquare}.
+ *
+ */
+
 public class LargeSquare extends Square implements ISquare {
 	
 	private ArrayList<Player> players= new ArrayList<Player>();
 
-	public LargeSquare(Game game, int position) {
+	public LargeSquare(IGame game, int position) {
 		super(game, position);
 	}
 	

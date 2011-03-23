@@ -1,5 +1,11 @@
 package snakes;
 
+/**
+ * A special type of <code>Square</code>s, which sends {@link Player}s
+ * wanting to land on it forwards to another Square, which is <code>transport</code> squares ahead.
+ *
+ */
+
 public class Ladder extends Square {
 
 	private int transport;
@@ -12,7 +18,7 @@ public class Ladder extends Square {
 		return transport != 0 && game.isValidPosition(position + transport);
 	}
 
-	public Ladder(int transport, Game game, int position) {
+	public Ladder(int transport, IGame game, int position) {
 		super(game, position);
 		assert isValidTransport(transport);
 		this.transport = transport;

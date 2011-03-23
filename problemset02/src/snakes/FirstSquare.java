@@ -3,11 +3,17 @@ package snakes;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Square with position 1. Holds all {@link Player}s at the begining of the game.
+ * There should only be one <code>FirstSquare</code> per <code>Game</code>. 
+ * @author vita
+ *
+ */
 public class FirstSquare extends Square {
 
 	private List<Player> players;
 
-	public FirstSquare(Game game, int position) {
+	public FirstSquare(IGame game, int position) {
 		super(game, position);
 		players = new ArrayList<Player>();
 	}

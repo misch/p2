@@ -15,7 +15,11 @@ public class TrapDoorTest {
 	private Player jill;
 
 	@Test
+<<<<<<< HEAD
+	public IDie newGame() {
+=======
 	public IGame newGame() {
+>>>>>>> origin/Problemset4
 		jack = new Player("Jack");
 		jill = new Player("Jill");
 		Player[] args = { jack, jill };
@@ -31,7 +35,11 @@ public class TrapDoorTest {
 	}
 	
 	@Given("newGame")
+<<<<<<< HEAD
+	public IDie jackToTrapDoor(Game game) {
+=======
 	public IGame jackToTrapDoor(IGame game) {
+>>>>>>> origin/Problemset4
 		game.movePlayer(1);
 		assertTrue(game.notOver());
 		assertEquals(2, jack.position());
@@ -41,7 +49,11 @@ public class TrapDoorTest {
 	}
 	
 	@Given("jackToTrapDoor")
+<<<<<<< HEAD
+	public IDie jillToTrapDoor(Game game) {
+=======
 	public IGame jillToTrapDoor(IGame game) {
+>>>>>>> origin/Problemset4
 		game.movePlayer(1);
 		assertTrue(game.notOver());
 		assertEquals(4, jack.position());
@@ -52,7 +64,11 @@ public class TrapDoorTest {
 	
 	//DR AWESOME I like new tests and they even check functionality of the TrapDoor.
 	@Given("jillToTrapDoor")
+<<<<<<< HEAD
+	public IDie checkStrings(Game game){
+=======
 	public IGame checkStrings(IGame game){
+>>>>>>> origin/Problemset4
 		assertEquals("[2==>4]", game.getSquare(2).toString());
 		assertEquals("[1][2==>4][3][|4|<Jack><Jill>][5][6]", game.toString());
 		return game;

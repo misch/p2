@@ -1,5 +1,11 @@
 package snakes;
 
+/**
+ * If it is occupied and a second {@link Player} wants to land on it,
+ * it sends both players to the specified {@link LargeSquare} at he position <code>trapEnd</code>.
+ *
+ */
+
 /*DR Everything is implemented and works as indented but sometimes you have to ask yourself if it's good
  * design the inherit from another class and then overriding and changing most of this classes methods
  * Probably you'd find another class more suited for an inheritance.
@@ -8,7 +14,7 @@ public class TrapDoor extends LargeSquare implements ISquare {
 	private Player player;
 	private int trapEnd;
 	
-	public TrapDoor(Game game, int position, int trapEnd){
+	public TrapDoor(IGame game, int position, int trapEnd){
 		super(game, position);
 		//DR Contract-Driven-Design well done! Maybe an invariant would have been nice?
 		assert game.getSquare(trapEnd).isLargeSquare();

@@ -9,6 +9,16 @@ import org.junit.Test;
 @RunWith(JMock.class)
 
 public class GameTest {
+<<<<<<< HEAD
+	
+	Mockery simulateGame = new Mockery();
+	
+	public void testGamePlay()
+	{
+		
+	}
+}
+=======
 
 	    Mockery context = new JUnit4Mockery();
 
@@ -41,3 +51,5 @@ public class GameTest {
 	       
 	    }
 	}
+
+>>>>>>> origin/Problemset4
