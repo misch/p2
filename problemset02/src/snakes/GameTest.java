@@ -33,6 +33,7 @@ public class GameTest {
 			
 			game.play(die);
 			
+			//DR Excellent!
 	        context.assertIsSatisfied();
 	        assert jack.wins();
 			assert !jill.wins();

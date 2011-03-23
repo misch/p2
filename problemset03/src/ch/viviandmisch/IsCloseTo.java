@@ -6,7 +6,12 @@ import org.hamcrest.Description;
 import org.hamcrest.Factory;
 import org.hamcrest.Matcher;
 import org.hamcrest.TypeSafeMatcher;
-
+/*DR Fix problemset04 for next week!
+ * 
+ * - add a test class for the matcher like it is written in the task!
+ * 
+ * Everything else was well done (responsibilities and matcher are ok)
+ */
 public class IsCloseTo extends TypeSafeMatcher<Point2D>{
 
 	private Point2D point;

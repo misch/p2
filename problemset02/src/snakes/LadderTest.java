@@ -10,6 +10,9 @@ import org.junit.Test;
 
 @RunWith(JMock.class)
 
+/*DR Well done, it's not a very nice way to test Squares but you understood how to use mocks! (normally there are better
+ * examples where you should use mocks, for example the GUI from problemset03!)
+ */
 public class LadderTest {
 	Mockery context = new JUnit4Mockery();
 
