@@ -29,8 +29,15 @@ group20               ok    ok	  ok    nef
 group21               ok    ok    nef   --
 group23      	      ok    ok    ok    nef
 group24               nef   nef   nef	nef
+<<<<<<< HEAD
+group25               ok    ok    nef   nef
+group26               nef   nef	  --	we 
+group27     	      ---------------------------------------------------------  
+group28      	      ---------------------------------------------------------  
+=======
 group25               ok    ok    ok    nef
 group26               nef   nef	  --	
+>>>>>>> 15166435e9476183236ee14418f837645985d6af
 
       ok:   accepted.
      nef:   revision required by next week.
