@@ -16,7 +16,7 @@ group06               ok    ok    nef   --
 group07               ok    ok    nef   ok
 group08               ok    ok	  ok    ex (30.03)
 group09               --    --    --    --
-group10               ok    ok    nef	ok
+group10               ok    ok    nef	nef
 group11     	      ok    wow   ok    --
 group12      	      ok    ok    nef   
 group13               ok    wow   nef	nef
