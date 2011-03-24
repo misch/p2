@@ -16,7 +16,7 @@ group06               ok    ok    nef   --
 group07               ok    ok    nef   nef
 group08               ok    ok	  ok    ex (30.03)
 group09               --    --    --    --
-group10               ok    ok    nef	nef
+group10               ok    ok    nef	ok
 group11     	      ok    wow   ok    --
 group12      	      ok    ok    nef   --
 group13               ok    wow   nef	nef
@@ -25,7 +25,7 @@ group15               ok    ok    nef   nef
 group16               --    --    --    --
 group17               ok    nef   --	--
 group19               ok    ok    wow
-group20               ok    ok	  ok    nef
+group20               ok    ok	  ok    ok
 group21               ok    ok    nef   --
 group23      	      ok    ok    ok    nef
 group24               nef   nef   nef	nef
@@ -38,6 +38,6 @@ group26               nef   nef	  --
       --:   nothing was submitted.	
      fix:   fixed problemset.
       ++:   deadline prolonged.
-     wow:   Especially awesome solution.
+     wow:   Especially rad solution.
 	  ex:	extended
 admitted:   admitted to the exam.
