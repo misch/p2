@@ -3,9 +3,7 @@
 This file contains the grades of the P2 students 2011
 
 Please check your grades every week and inform us as soon as possible if 
-something is not correct. For admission to the exam 8 out of 10 exercises 
-need to be ok. Note that problemset 08 is mandatory for problemset 09.
-This means: without problemset 08 problemset 09 can't be completed and won't be graded too.
+something is not correct.
 
 -------------------------------------------------------------------------------
 
@@ -16,13 +14,13 @@ group04               ok    ok    nef   nef
 group05               ok    nef   nef
 group06               ok    ok    nef   ()
 group07               ok    ok    nef   nef
-group08               ok    ok	  nef   --
+group08               ok    ok	  ok    ex (30.03)
 group09               --    --    --    --
 group10               ok    ok    nef	nef
 group11     	      ok    wow     
 group12      	      ok    ok    nef   --
 group13               ok    wow   nef	nef
-group14               ok    wow   ok    ex
+group14               ok    wow   ok    ex (27.03)
 group15               ok    ok    nef   nef
 group16               --    --    --    --
 group17               ok    nef   --	--
@@ -34,7 +32,7 @@ group22     	      ---------------------------------------------------------
 group23      	      ok    ok    ok    nef
 group24               nef   nef   nef	nef
 group25               ok    ok    nef   nef
-group26               nef   nef	  --	we
+group26               nef   nef	  --	we 
 group27     	      ---------------------------------------------------------  
 group28      	      ---------------------------------------------------------  
 
