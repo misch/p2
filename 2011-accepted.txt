@@ -28,7 +28,7 @@ group19               ok    ok    wow
 group20               ok    ok	  ok    ok
 group21               ok    ok    nef   --
 group23      	      ok    ok    ok    nef
-group24               nef   nef   nef	nef
+group24               nef   nef   ok	nef
 group25               ok    ok    ok    nef
 group26               nef   nef	  --	
 
