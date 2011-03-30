@@ -6,6 +6,7 @@ public class Square {
 	
 	private ArrayList<Amoeba> amoebas=new ArrayList<Amoeba>();
 	private Game game;
+	//DR remove unused variables!
 	private int horizontalPosition;
 	private int verticalPosition;
 	private int greenFood;

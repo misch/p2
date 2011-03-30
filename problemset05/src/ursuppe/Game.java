@@ -4,7 +4,13 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 
-
+/*DR Accepted!
+ * 
+ * All in all it's a pretty good solution
+ * Just redo your toString and add some more tests 
+ * (as a general rule one test class for each class and one test for each non-trivial public method)
+ * 
+ */
 public class Game {
 	
 	private Board board;
