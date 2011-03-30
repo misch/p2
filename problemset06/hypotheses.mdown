@@ -1,0 +1,7 @@
+#Our hypothesises on why tests fail.
+
+## Hypothesis 1: The code won't compile.
+* Verification:
+ 	* Code does compile: ![code compiles](img/no-compile-errors.png).
+* Explanation: 
+	* The code is valid Java.
