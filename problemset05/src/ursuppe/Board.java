@@ -12,6 +12,7 @@ public class Board {
 		setWindDirection();
 	}
 	
+	//DR Have a look at enums for directions and colors!
 	private void setWindDirection() {
 		int dir = 1 + (int) (4 * Math.random());
 		assert dir >= 1 && dir <= 4;
@@ -47,6 +48,7 @@ public class Board {
 		
 	}
 	
+	//DR you have to redo your toString method it should look nice but it's ok for Iteration 1^^
 	public String toString(){
 		String result="";
 		for(int horizontal=0; horizontal<5;horizontal++){
