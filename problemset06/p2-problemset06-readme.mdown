@@ -18,7 +18,7 @@ You should teach your team to
 
 ##(2) Go bug hunting and provide your hypotheses.
 
-You will notice that out of the 11 test methods, only 4 pass. At least your new team is writing tests! Choose one of the tests, and then follow the steps above to fix the bug. Then, add a section into `hypotheses.mdown` that states your hypothesis, the result of your verification of that hypothesis with a screen shot that lets us confirm your reasoning, and your explanation of what you observed. 
+You will notice that out of the 11 test methods, only 4 pass. At least your new team is writing tests! Choose one of the tests, and then follow the steps above to explain the bug. Then, add a section into `hypotheses.mdown` that states your hypothesis, the result of your verification of that hypothesis with a screen shot that lets us confirm your reasoning, and your explanation of what you observed. 
 
 You don't need to make a section for each hypothesis that you iterate through, but make sure to have a few interesting ones in the file.
 
