@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC
+    "-//W3C//DTD XHTML 1.1 plus MathML 2.0 plus SVG 1.1//EN"
+    "http://www.w3.org/2002/04/xhtml-math-svg/xhtml-math-svg.dtd">
+<html xmlns:svg='http://www.w3.org/2000/svg' xml:lang='en' xmlns='http://www.w3.org/1999/xhtml'>
+<head><meta content='application/xhtml+xml;charset=utf-8' http-equiv='Content-type' /><title>Our hypothesises on why tests fail.</title></head>
+<body>
+<h1 id='our_hypothesises_on_why_tests_fail'>Our hypothesises on why tests fail.</h1>
+
+<h2 id='hypothesis_1_the_code_wont_compile'>Hypothesis 1: The code won&#8217;t compile.</h2>
+
+<ul>
+<li>
+<p>Verification: * Code does compile: <img src='img/no-compile-errors.png' alt='code compiles' />.</p>
+</li>
+
+<li>
+<p>Explanation: * The code is valid Java.</p>
+
+<h2 id='test_shouldfindnumberatfirstindexafteradd'>Test: shouldFindNumberAtFirstIndexAfterAdd()</h2>
+
+<h2 id='hypothesis_1_the_item_is_inserted_at_the_wrong_place'>Hypothesis 1: The item is inserted at the wrong place.</h2>
+</li>
+
+<li>
+<p>Verification: * Object is inserted at Index 0 as it should: <img src='img/Add_inserts_object_at_right_Index.tiff' alt='inserted at right index' /></p>
+</li>
+
+<li>
+<p>Explanation: * Tail is at index 0 when the variable is assigned.</p>
+</li>
+</ul>
+
+<h2 id='hypothesis_2_the_get_method_returns_the_wrong_object_index_isnt_handled_correctly'>Hypothesis 2: The get() method returns the wrong object (index isn&#8217;t handled correctly).</h2>
+
+<ul>
+<li>Verification: * Instead of the object at index 0, the one at index 1 is returned: <img src='img/get_0_returns_wrong_object.tiff' alt='wrong object returned' /></li>
+
+<li>Explanation: * The for-loop iterates one time to often, the method returns null (in this case).</li>
+</ul>
+
+<h2 id='test_shouldfindnumberswhereput'>Test: shouldFindNumbersWherePut()</h2>
+
+<h2 id='hypothesis_same_problem_as_above_get_returns_object_at_index1'>Hypothesis: Same problem as above (get returns object at index+1).</h2>
+
+<ul>
+<li>
+<p>Verification: * As above: <img src='img/get_0_returns_13.tiff' alt='wrong object returned' /></p>
+
+<h2 id='test_shouldaddcollectionright'>Test: shouldAddCollectionRight()</h2>
+
+<h2 id='hypothesis_1_addall_doesnt_put_the_items_at_the_right_place'>Hypothesis 1: addAll() doesn&#8217;t put the items at the right place.</h2>
+</li>
+
+<li>
+<p>Verification: * addAll() inserts the items as intended: <img src='img/addAll_works_right.tiff' alt='addAll works fine' /></p>
+</li>
+
+<li>
+<p>Explanation: * Values are at positions 0 to 2.</p>
+</li>
+</ul>
+
+<h2 id='hypothesis_2_as_above_get_doesnt_return_the_right_items'>Hypothesis 2: As above, get() doesn&#8217;t return the right items.</h2>
+
+<ul>
+<li>
+<p>Verification: * get(0) returns the item at index 1 instead of index 0: <img src='img/get_0_returns_wrong_item_after_addAll.tiff' alt='wrong object returned' /></p>
+</li>
+
+<li>
+<p>Explanation: * As above.</p>
+
+<h2 id='test_shouldbeatrightpositionafteraddatindex'>Test: shouldBeAtRightPositionAfterAddAtIndex()</h2>
+
+<h2 id='hypothesis_addat_does_not_insert_the_item_at_the_right_index'>Hypothesis: addAt() does not insert the item at the right index.</h2>
+</li>
+
+<li>
+<p>Verification: * addAt(2,2) inserts 2 at index 3 instead of index 2: <img src='img/addAt_inserts_at_wrong_index.tiff' alt='inserts at wrong index' /></p>
+</li>
+
+<li>
+<p>Explanation: * The for-loop of addAt should stop a step earlier.</p>
+
+<h2 id='test_shouldaddcollectionatindex'>Test: shouldAddCollectionAtIndex()</h2>
+
+<h2 id='hypothesis_addall_inserts_the_collection_at_a_wrong_index'>Hypothesis: addAll inserts the collection at a wrong index.</h2>
+</li>
+
+<li>
+<p>Verification: * addAll hands a too high index to addAt: <img src='img/addAll_computes_wrong_index.tiff' alt='wrong index computed' /> <em>Explanation:</em> Pre-increment is used instead of post-increment.</p>
+</li>
+</ul>
+
+<h2 id='test_shouldremoverightitem'>Test: shouldRemoveRightItem()</h2>
+
+<h2 id='hypothesis_remove_removes_a_wrong_item'>Hypothesis: remove removes a wrong item.</h2>
+
+<ul>
+<li>
+<p>Verification: * The returned value is 3 instead of 2: <img src='img/remove_removes_wrong_item.tiff' alt='removed wrong item' /></p>
+</li>
+
+<li>
+<p>Explanation: * the method remove returns current.next although current is at the index.</p>
+
+<h2 id='test_shoulditerateemptylist'>Test: shouldIterateEmptyList()</h2>
+
+<h2 id='hypothesis_itnext_does_exist'>Hypothesis: it.next does exist.</h2>
+</li>
+
+<li>
+<p>Verification: * it.next is null: <img src='img/it.next_exists_but_is_null.tiff' alt='next element is null' /></p>
+</li>
+
+<li>
+<p>Explanation: * tail always has a next element which is null.</p>
+
+<h2 id='test_shoulditeratelistofthree'>Test: shouldIterateListOfThree()</h2>
+
+<h2 id='hypothesis_as_above'>Hypothesis: As above.</h2>
+</li>
+
+<li>
+<p>Verification: <img src='img/it.next_exists_but_is_null_2.tiff' alt='next element is null' /></p>
+</li>
+</ul>
+</body></html>

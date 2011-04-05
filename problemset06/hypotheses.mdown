@@ -1,7 +1,70 @@
-#Our hypothesises on why tests fail.
+#Our hypotheses on why tests fail.
 
 ## Hypothesis 1: The code won't compile.
 * Verification:
  	* Code does compile: ![code compiles](img/no-compile-errors.png).
 * Explanation: 
 	* The code is valid Java.
+	
+## Test: shouldFindNumberAtFirstIndexAfterAdd()
+## Hypothesis 1: The item is inserted at the wrong place.
+* Verification:
+	* Object is inserted at Index 0 as it should: ![inserted at right index](img/Add_inserts_object_at_right_Index.tiff)
+* Explanation:
+	* Tail is at index 0 when the variable is assigned.
+
+## Hypothesis 2: The get() method returns the wrong object (index isn't handled correctly).
+* Verification:
+	* Instead of the object at index 0, the one at index 1 is returned: ![wrong object returned](img/get_0_returns_wrong_object.tiff)
+* Explanation:
+	* The for-loop iterates one time to often, the method returns null (in this case).
+
+## Test: shouldFindNumbersWherePut()
+## Hypothesis: Same problem as above (get returns object at index+1).
+* Verification:
+	* As above: ![wrong object returned](img/get_0_returns_13.tiff)
+	
+## Test: shouldAddCollectionRight()
+## Hypothesis 1: addAll() doesn't put the items at the right place.
+* Verification:
+	* addAll() inserts the items as intended: ![addAll works fine](img/addAll_works_right.tiff)
+* Explanation:
+	* Values are at positions 0 to 2.
+
+## Hypothesis 2: As above, get() doesn't return the right items.
+* Verification:
+	* get(0) returns the item at index 1 instead of index 0: ![wrong object returned](img/get_0_returns_wrong_item_after_addAll.tiff)
+* Explanation: 
+	* As above.
+	
+## Test: shouldBeAtRightPositionAfterAddAtIndex()
+## Hypothesis: addAt() does not insert the item at the right index.
+* Verification:
+	* addAt(2,2) inserts 2 at index 3 instead of index 2: ![inserts at wrong index](img/addAt_inserts_at_wrong_index.tiff)
+* Explanation:
+	* The for-loop of addAt should stop a step earlier.
+	
+## Test: shouldAddCollectionAtIndex()
+## Hypothesis: addAll inserts the collection at a wrong index.
+* Verification:
+	* addAll hands a too high index to addAt: ![wrong index computed](img/addAll_computes_wrong_index.tiff)
+*Explanation:
+	* Pre-increment is used instead of post-increment.
+
+## Test: shouldRemoveRightItem()
+## Hypothesis: remove removes a wrong item.
+* Verification:
+	* The returned value is 3 instead of 2: ![removed wrong item](img/remove_removes_wrong_item.tiff)
+* Explanation:
+	* the method remove returns current.next although current is at the index.
+	
+## Test: shouldIterateEmptyList()
+## Hypothesis: it.next does exist.
+* Verification:
+	* it.next is null: ![next element is null](img/it.next_exists_but_is_null.tiff)
+* Explanation:
+	* tail always has a next element which is null.
+	
+## Test: shouldIterateListOfThree()
+## Hypothesis: As above.
+* Verification: ![next element is null](img/it.next_exists_but_is_null_2.tiff)

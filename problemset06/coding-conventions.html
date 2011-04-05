@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC
+    "-//W3C//DTD XHTML 1.1 plus MathML 2.0 plus SVG 1.1//EN"
+    "http://www.w3.org/2002/04/xhtml-math-svg/xhtml-math-svg.dtd">
+<html xmlns:svg='http://www.w3.org/2000/svg' xml:lang='en' xmlns='http://www.w3.org/1999/xhtml'>
+<head><meta content='application/xhtml+xml;charset=utf-8' http-equiv='Content-type' /><title>Coding conventions</title></head>
+<body>
+<h1 id='coding_conventions'>Coding conventions</h1>
+
+<h2 id='coding_rules'>Coding rules</h2>
+
+<ol>
+<li>Write postconditions to assure that your public methods work right (that way, you will find bugs faster).</li>
+
+<li>Avoid using and changing variables at the same time. (especially if you&#8217;re not sure about the functionality).</li>
+
+<li>Consider that for-loops only stop AFTER the condition breaks. (Check that the values are what you need after the LAST loop).</li>
+</ol>
+
+<h2 id='rules_for_tests'>Rules for tests</h2>
+
+<ol>
+<li>Use the expected statement after @Test if you expect an Error</li>
+
+<li>Be sure that you know what the expected value is, if you test it. (Otherwise you get failing tests, even though your programm works fine).</li>
+
+<li>Use the @Given statement so you don&#8217;t have to setup a new scenario for each test.</li>
+</ol>
+
+<h2 id='readability_and_maintainability'>Readability and maintainability</h2>
+
+<ol>
+<li>Write some javadoc, so one can see what a method should do (what it&#8217;s responsible for).</li>
+
+<li>Write an invariant for your postconditions.</li>
+</ol>
+</body></html>
