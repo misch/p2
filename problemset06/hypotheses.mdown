@@ -1,3 +1,9 @@
+#Fix problemset06 for next week!
+#Good coding conventions but you used a very strange picture format HTML does not support generaly!
+#therefore all of your pics are not there if you convert your markdown to html
+#please fix this!
+#I hope you'll fix this soon since the rest would be ok I think
+
 #Our hypotheses on why tests fail.
 
 ## Hypothesis 1: The code won't compile.
