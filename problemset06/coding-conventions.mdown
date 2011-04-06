@@ -1,0 +1,15 @@
+#Coding conventions  
+
+##Coding rules  
+1. Write postconditions to assure that your public methods work right (that way, you will find bugs faster).  
+2. Avoid using and changing variables at the same time. (especially if you're not sure about the functionality).  
+3. Consider that for-loops only stop AFTER the condition breaks. (Check that the values are what you need after the LAST loop).  
+
+##Rules for tests
+1. Use the expected statement after @Test if you expect an Error  
+2. Be sure that you know what the expected value is, if you test it. (Otherwise you get failing tests, even though your programm works fine).  
+3. Use the @Given statement so you don't have to setup a new scenario for each test.
+
+##Readability and maintainability  
+1. Write some javadoc, so one can see what a method should do (what it's responsible for).  
+2. Write an invariant for your postconditions.
