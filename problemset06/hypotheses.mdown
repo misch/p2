@@ -1,3 +1,9 @@
+#Accepted
+#Good coding conventions but you used a very strange picture format HTML does not support generaly!
+#Therefore all of your pics are not there if you convert your markdown to html
+#Test: shouldBeAtRightPositionAfterAddAtIndex() the screenshot does not really point out what you say.
+#The rest is well written and documented keep on!
+
 #Our hypotheses on why tests fail.
 
 ## Hypothesis 1: The code won't compile.
