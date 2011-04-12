@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC
+    "-//W3C//DTD XHTML 1.1 plus MathML 2.0 plus SVG 1.1//EN"
+    "http://www.w3.org/2002/04/xhtml-math-svg/xhtml-math-svg.dtd">
+<html xmlns:svg='http://www.w3.org/2000/svg' xml:lang='en' xmlns='http://www.w3.org/1999/xhtml'>
+<head><meta content='application/xhtml+xml;charset=utf-8' http-equiv='Content-type' /><title></title></head>
+<body>
+<p>This exercise introduces you to dependency injection and refactoring. You will the snakes and ladders game.</p>
+
+<h2 id='task_1_mark_methods_as_for_testing_only'>Task 1: Mark methods as for testing only</h2>
+
+<p>If methods are used by tests only mark them with a custom @ForTestingOnly annotation that you need to provide.</p>
+
+<ul>
+<li>Provide a <code>ForTestingOnly</code> annotation.</li>
+</ul>
+
+<p>Hint: use “Open call hierarchy” to learn about the callers of a method&#8212;or (as some professional developers do it) just make the method private, hit save and wait for compile time errors. Then act as follows</p>
+
+<ul>
+<li>If there are compile errors redeclare the method as public.</li>
+
+<li>If the errors occurred only in tests, mark the method as &#8220;for testing&#8221; only.</li>
+
+<li>If there are no compile errors, keep the method private.</li>
+
+<li>If a warning appears that the method is unused, remove it.</li>
+</ul>
+
+<h2 id='task_2_dependency_injection'>Task 2: Dependency injection</h2>
+
+<p>ACME Inc. is between projects and desperately in the need for problems to solve. Their eyes fell upon the Snakes and ladders game, which still isn&#8217;t using dependency injection.</p>
+
+<p>As their top consultant, you&#8217;ve been called to the rescue. Your new supervisor, a guy who does not even know whether it&#8217;s pull or push that gets new code from the server, has heard about a wonderful technique that they use at Google. As he informs you, it&#8217;s called <a href='http://code.google.com/p/google-guice/'>Guice</a>, and what works for Google ought to work for you! In his explanation of Guice, your supervisor clearly mixes up a few terms, but you manage to understand that he wants to inject, as it were, a die into the game. The Game isn&#8217;t supposed to create its own die. After you asked back a few times, you gather that the advantage is that the <code>Game#play</code> method does not need to have a parameter, but still, a mock die can be used in unit tests.</p>
+
+<p>As you go along, you realize that referring to a unit test from within the game, as in the <code>Game#main</code> method isn&#8217;t good style. Probably, there should be a class whose sole responsibility is to create a Game.</p>
+
+<h2 id='task_21_make_yourself_familiar_with_dependency_injection'>Task 2.1: Make yourself familiar with dependency injection</h2>
+
+<p>Work your way through the <a href='http://code.google.com/p/google-guice/wiki/GettingStarted'>Guice documentation</a> to get familiar with the topic of dependency injection and Guice. You may find the relevant <a href='http://www.youtube.com/watch?v=hBVJbzAagfs'>google tech talk</a> helpful.</p>
+
+<h2 id='task_22_refactor_snakes_and_ladders_towards_dependency_injection'>Task 2.2: Refactor snakes and ladders towards dependency injection</h2>
+
+<ul>
+<li>Rewrite The <code>Game#play</code> method such that it does not accept a parameter, but instead uses an instance variable die, which is injected by Google Guice.</li>
+
+<li>Make a Guice Provider that constructs the Game similar to <code>SimpleGameTest#newGame</code>.</li>
+
+<li>Make a SnakesAndLaddersModule. Modify the code such that the provider is used to assemble the squares of the game.</li>
+
+<li>Make sure that all unit tests, including the tests that use a mock die, exist and continue to work.</li>
+</ul>
+
+<h2 id='remarks'>Remarks</h2>
+
+<ul>
+<li>If you did not hand in problemset02, you can ask for somebody else&#8217;s code to refactor.</li>
+
+<li>Please solve this exercise in the problemset02 folder.</li>
+</ul>
+</body></html>

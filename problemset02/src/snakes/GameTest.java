@@ -20,7 +20,7 @@ public class GameTest {
 	        Player jack = new Player("Jack");
 			Player jill = new Player("Jill");
 			Player[] players = { jack, jill };
-			IGame game = new Game(8, players);
+			IGame game = new Game(8, players, die);
 	        
 			
 			context.checking(new Expectations() {{	
@@ -31,7 +31,7 @@ public class GameTest {
 			       returnValue(2)));
 	        }});
 			
-			game.play(die);
+			game.play();
 			
 			//DR Excellent!
 	        context.assertIsSatisfied();

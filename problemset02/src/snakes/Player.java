@@ -27,7 +27,8 @@ public class Player {
 		square.enter(this);	
 		assert invariant();
 	}
-
+	
+	@ForTestingOnly
 	public int position() {
 		assert invariant();
 		return square.position();
@@ -48,7 +49,8 @@ public class Player {
 	public String toString() {
 		return name;
 	}
-
+	
+	@ForTestingOnly
 	public ISquare square() {
 		return square;
 	}

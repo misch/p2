@@ -2,11 +2,17 @@ package snakes;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
+
+import java.util.List;
+
 import ch.unibe.jexample.JExample;
 import ch.unibe.jexample.Given;
 import org.junit.Test;
 
+
 import org.junit.runner.RunWith;
+
+import com.google.inject.*;
 
 @RunWith(JExample.class)
 public class SimpleGameTest {
@@ -16,13 +22,11 @@ public class SimpleGameTest {
 
 	@Test
 	public IGame newGame() {
-		jack = new Player("Jack");
-		jill = new Player("Jill");
-		Player[] args = { jack, jill };
-		IGame game = new Game(12, args);
-		game.setSquareToLadder(2, 4);
-		game.setSquareToLadder(7, 2);
-		game.setSquareToSnake(11, -6);
+		Injector injector=Guice.createInjector(new SnakesAndLaddersModule());
+		IGame game = injector.getInstance(Game.class);
+		List<Player> players= game.getPlayers();
+		jack=players.get(0);
+		jill=players.get(1);
 		assertTrue(game.notOver());
 		assertTrue(game.firstSquare().isOccupied());
 		assertEquals(1, jack.position());

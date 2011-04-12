@@ -19,7 +19,7 @@ public class TrapDoorTest {
 		jack = new Player("Jack");
 		jill = new Player("Jill");
 		Player[] args = { jack, jill };
-		IGame game = new Game(6, args);
+		IGame game = new Game(6, args, new Die());
 		game.setSquareToLargeSquare(4);//had to change the sequence, (no TrapDoor without LargeSquare)
 		game.setSquareToTrapDoor(2, 2);
 		assertTrue(game.notOver());
