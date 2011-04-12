@@ -51,6 +51,7 @@ public class Square implements ISquare {
 		return Integer.toString(position);
 	}
 	
+	@ForTestingOnly
 	public boolean isOccupied() {
 		return player != null;
 	}

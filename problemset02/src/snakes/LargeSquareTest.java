@@ -20,7 +20,7 @@ public class LargeSquareTest {
 		jack = new Player("Jack");
 		jill = new Player("Jill");
 		Player[] args = { jack, jill };
-		IGame game = new Game(12, args);
+		IGame game = new Game(12, args, new Die());
 		game.setSquareToLargeSquare(2);
 		assertTrue(game.notOver());
 		assertTrue(game.firstSquare().isOccupied());

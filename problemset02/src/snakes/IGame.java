@@ -1,10 +1,14 @@
 package snakes;
 
+import java.util.List;
+
+
+
 public interface IGame {
 
 	public abstract boolean isValidPosition(int position);
 
-	public abstract void play(IDie die);
+	public abstract void play();
 
 	public abstract boolean notOver();
 
@@ -13,8 +17,6 @@ public interface IGame {
 	public abstract Player currentPlayer();
 
 	public abstract void movePlayer(int roll);
-
-	public abstract void setSquare(int position, ISquare square);
 
 	public abstract Player winner();
 
@@ -33,5 +35,7 @@ public interface IGame {
 	public abstract void setSquareToTrapDoor(int position, int transport);
 
 	public abstract ISquare findSquare(int position, int moves);
+
+	public abstract List<Player> getPlayers();
 
 }
