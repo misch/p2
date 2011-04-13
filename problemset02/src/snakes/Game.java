@@ -6,9 +6,17 @@ import java.util.List;
 import java.util.Queue;
 import com.google.inject.*;
 
-/*DR Fix problemset02 for next week! Correct and improve your Javadoc and make the impression that
-* you've read the style guide.
-* Your TrapDoor and LargeSquare work as intended and you fully tested the functionality of them.
+/*DR Fix Problemset07 for next week
+ * - You used and created the @ForTestingOnly annotations
+ * - You used Guice and tried to understand Dependency Injection 
+ * 		but if you're using DI you should replace all the new calles with the help of the Injectors!
+ * 		also it would have been nice to have a Provider for the other variables of the game
+ * - but where is your mock die you have two possible ways of doing this
+ * First: create a new class called MockDie and bind it in the SnakesModule, create another Module for the game#main 
+ * 			where you bind the IDie to the realDie
+ * Second: you could bind the JMock mockDie!
+ * 
+ * Pay attetion to this weeks presentation!
 */
 
 /**
@@ -27,6 +35,11 @@ public class Game implements IGame {
 			&& size == squares.size()
 			&& players.size() > 1;
 	}
+	
+	/*DR you could make a Provide for the other stuff a game need
+	 * therefore if you'd have a GameProvider it would know how to get players and 
+	 * what it size would be (see this weeks presentation!)
+	 */
 	
 	@Inject
 	public Game(IDie die) {
