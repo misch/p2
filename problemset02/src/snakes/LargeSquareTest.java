@@ -20,6 +20,7 @@ public class LargeSquareTest {
 		jack = new Player("Jack");
 		jill = new Player("Jill");
 		Player[] args = { jack, jill };
+		//DR use Guice! 
 		IGame game = new Game(12, args, new Die());
 		game.setSquareToLargeSquare(2);
 		assertTrue(game.notOver());
