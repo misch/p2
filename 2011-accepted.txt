@@ -9,7 +9,7 @@ something is not correct.
 
                      a01   a02   a03   a04   a05   a06   a07   a08   a09   a10
 group02              ok    nef   --    --    --    --    --
-group03              ok    ok    wow   ok    --    ok    --
+group03              ok    ok    wow   ok    ok    ok    ok
 group04              ok    ok    ok    ok    ok    ok    --
 group05              ok    ok    ok    --    --    ok    --
 group06              ok    ok    ok    nef   ok    ok    nef
