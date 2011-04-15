@@ -5,6 +5,14 @@ import java.util.ArrayList;
 public class Square {
 	
 	private ArrayList<Amoeba> amoebas=new ArrayList<Amoeba>();
+	public enum FoodStuff { 
+		green("g"),
+		blue("b"),
+		red("r"),
+		yellow("y");
+		private String representation; // string representation of value
+		Token(String s) { this.representation = s; }
+		public String toString() { return this.representation; }
 	private Game game;
 	private int horizontalPosition;
 	private int verticalPosition;
