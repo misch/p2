@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Queue;
 import com.google.inject.*;
 
+<<<<<<< HEAD
 /*DR Fix Problemset07 for next week
  * - You used and created the @ForTestingOnly annotations
  * - You used Guice and tried to understand Dependency Injection 
@@ -17,6 +18,11 @@ import com.google.inject.*;
  * Second: you could bind the JMock mockDie!
  * 
  * Pay attetion to this weeks presentation!
+=======
+/*DR Fix problemset02 for next week! Correct and improve your Javadoc and make the impression that
+* you've read the style guide.
+* Your TrapDoor and LargeSquare work as intended and you fully tested the functionality of them.
+>>>>>>> Problemset7
 */
 
 /**
@@ -36,6 +42,7 @@ public class Game implements IGame {
 			&& players.size() > 1;
 	}
 	
+<<<<<<< HEAD
 	/*DR you could make a Provide for the other stuff a game need
 	 * therefore if you'd have a GameProvider it would know how to get players and 
 	 * what it size would be (see this weeks presentation!)
@@ -53,6 +60,8 @@ public class Game implements IGame {
 		this.setSquareToSnake(11, -6);
 	}
 	
+=======
+>>>>>>> Problemset7
 	public Game(int size, Player[] initPlayers, IDie die) {
 		setUp(size, initPlayers);
 		this.die=die;
@@ -200,10 +209,6 @@ public class Game implements IGame {
 	
 	public List<Player> getPlayers(){
 		return new ArrayList<Player>(players);
-	}
-	
-	public IDie getDie(){
-		return this.die;
 	}
 
 }
