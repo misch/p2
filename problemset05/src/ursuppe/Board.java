@@ -2,9 +2,19 @@ package ursuppe;
 
 public class Board {
 	
+	public enum WindDirection { 
+		nord("n"),
+		east("o"),
+		south("s"),
+		west("w");
+		private String representation;
+		WindDirection(String s) { this.representation = s; }
+		public String toString() { return this.representation; }
+	}
+	
 	private Square[][] squares= new Square[5][5];
 	private Game game;
-	private String windDirection;
+	private WindDirection windDirection;
 	
 	public Board(Game game){
 		this.game=game;
@@ -16,16 +26,16 @@ public class Board {
 		int dir = 1 + (int) (4 * Math.random());
 		assert dir >= 1 && dir <= 4;
 		if(dir==1){
-			windDirection="south";
+			windDirection=WindDirection.nord;
 		}
 		if(dir==2){
-			windDirection="west";
+			windDirection=WindDirection.east;
 		}
 		if(dir==3){
-			windDirection="nord";
+			windDirection=WindDirection.south;
 		}
 		if(dir==4){
-			windDirection="east";
+			windDirection=WindDirection.west;
 		}
 	}
 	
