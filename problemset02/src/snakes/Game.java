@@ -201,5 +201,9 @@ public class Game implements IGame {
 	public List<Player> getPlayers(){
 		return new ArrayList<Player>(players);
 	}
+	
+	public IDie getDie(){
+		return this.die;
+	}
 
 }

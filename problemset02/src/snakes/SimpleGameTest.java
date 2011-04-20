@@ -24,7 +24,7 @@ public class SimpleGameTest {
 	public IGame newGame() {
 		//DR that is exactly what I would like to see in all the other Test classes!
 		Injector injector=Guice.createInjector(new SnakesAndLaddersModule());
-		IGame game = injector.getInstance(Game.class);
+		IGame game = injector.getInstance(IGame.class);
 		List<Player> players= game.getPlayers();
 		jack=players.get(0);
 		jill=players.get(1);

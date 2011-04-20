@@ -38,4 +38,6 @@ public interface IGame {
 
 	public abstract List<Player> getPlayers();
 
+	public abstract IDie getDie();
+
 }

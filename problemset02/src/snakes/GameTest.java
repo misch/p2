@@ -1,4 +1,8 @@
 package snakes;
+import static org.junit.Assert.*;
+
+import java.util.List;
+
 import org.jmock.Mockery;
 import org.jmock.Expectations;
 import org.jmock.integration.junit4.JMock;
@@ -6,39 +10,39 @@ import org.jmock.integration.junit4.JUnit4Mockery;
 import org.junit.runner.RunWith;
 import org.junit.Test;
 
-@RunWith(JMock.class)
+import com.google.inject.Guice;
+import com.google.inject.Injector;
+
+
 
 public class GameTest {
 
-	    Mockery context = new JUnit4Mockery();
+	private Player jack;
+	private Player jill;
 
 	    @Test
 	    public void testPlay() {
 	    	
-	        final IDie die = context.mock(IDie.class);
-	        
-	        Player jack = new Player("Jack");
-			Player jill = new Player("Jill");
-			Player[] players = { jack, jill };
-			IGame game = new Game(8, players, die);
+	    	Injector injector=Guice.createInjector(new TestModule());
+			IGame game = injector.getInstance(IGame.class);
+			List<Player> players= game.getPlayers();
+			jack=players.get(0);
+			jill=players.get(1);
 	        
 			
-			context.checking(new Expectations() {{	
-				atLeast(1).of (die).roll();
-				will(onConsecutiveCalls(
-			       returnValue(5),
-			       returnValue(6),
-			       returnValue(2)));
-	        }});
+			MockDie die= (MockDie)game.getDie();
+			die
+				.setValue(6)
+				.setValue(5)
+				.setValue(3);
 			
 			game.play();
 			
-			//DR Excellent!
-	        context.assertIsSatisfied();
-	        assert jack.wins();
-			assert !jill.wins();
-			assert jill.square().position()==7;
-			assert game.isOver();
+			//DR Excellent
+	        assertTrue( jack.wins());
+			assertTrue(!jill.wins());
+			assertTrue( jill.square().position()==6);
+			assertTrue( game.isOver());
 	       
 	    }
 	}
