@@ -10,7 +10,8 @@ Since it's a large project, the clients insist that you phase out development. T
 
 [The game rules](Ursuppe_Rules.pdf).
 
-Simplifications:
+Simplifications:<br>
+You may ask for more simplifications, if you run into issues. Send an email to [Niko](mailto:schwarz@iam.unibe.ch).
 
  * You may assume exactly 3 players.
  * You need only implement 4 genes.
@@ -23,6 +24,7 @@ that it is displayed correctly (i.e., the correct number of amebas are on the fi
 * Implement the `Board` and `Square` classes. 
 * Write Unit tests and make sure that all tests are green. 
 * The board should be able to render itself as ASCII graphics.
+* (This is optional if your Snakes and ladders board is constructed by a Guice provider): The board of the game must be constructed by a Guice provider.
 
 When you're done, [tag](http://kernel.org/pub/software/scm/git/docs/git-tag.html) your
 solution as `ursuppe01` with the `-a` option on (`git tag -a ludo01`). Be sure to push with the `--tags` option so we can see your tag.
