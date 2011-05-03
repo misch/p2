@@ -1,18 +1,20 @@
 package ursuppe;
 
+import java.util.*;
+
 public class Board {
 	
 	public enum WindDirection { 
-		nord("n"),
-		east("o"),
-		south("s"),
-		west("w");
+		nord("nord"),
+		east("east"),
+		south("south"),
+		west("west");
 		private String representation;
 		WindDirection(String s) { this.representation = s; }
 		public String toString() { return this.representation; }
 	}
 	
-	private Square[][] squares= new Square[5][5];
+	private ISquare[][] squares= new ISquare[5][5];
 	private Game game;
 	private WindDirection windDirection;
 	
@@ -22,21 +24,24 @@ public class Board {
 		setWindDirection();
 	}
 	
-	private void setWindDirection() {
+	public void setWindDirection() {
+		windDirection=getRandomWindDirection();
+	}
+
+	public static WindDirection getRandomWindDirection() {
+		WindDirection direction;
 		int dir = 1 + (int) (4 * Math.random());
 		assert dir >= 1 && dir <= 4;
 		if(dir==1){
-			windDirection=WindDirection.nord;
+			direction=WindDirection.nord;
+		}else if(dir==2){
+			direction=WindDirection.east;
+		}else if(dir==3){
+			direction=WindDirection.south;
+		}else{
+			direction=WindDirection.west;
 		}
-		if(dir==2){
-			windDirection=WindDirection.east;
-		}
-		if(dir==3){
-			windDirection=WindDirection.south;
-		}
-		if(dir==4){
-			windDirection=WindDirection.west;
-		}
+		return direction;
 	}
 	
 	private boolean isInBoardRange(int horizontal, int vertical){
@@ -51,7 +56,7 @@ public class Board {
 			for(int vertical=0; vertical<5;vertical++){
 				if(isInBoardRange(horizontal,vertical)){
 					squares[horizontal][vertical]=new Square(game, horizontal, vertical);
-				}else{squares[horizontal][vertical]=null;}
+				}else{squares[horizontal][vertical]=new NullSquare(horizontal, vertical);}
 			}
 		}
 		
@@ -61,22 +66,44 @@ public class Board {
 		String result="";
 		for(int horizontal=0; horizontal<5;horizontal++){
 			for(int vertical=0; vertical<5;vertical++){
-				if(isInBoardRange(horizontal,vertical)){
-					result+= squares[horizontal][vertical].toString();
-				}
-				else{
-					if(horizontal==2 && vertical==2){
-						result+= " [ ~ "+windDirection+" ~ ] ";
-					}else{ result+=" |____________| ";}
-				}
+				if(horizontal==2 && vertical==2){
+					result+= " [ ~ "+windDirection.toString()+" ~ ] ";
+				}else{result+= squares[horizontal][vertical].toString();}
 			}
 			result+="\n";
 		}
 		return result;
 	}
 
-	public Square getSquare(int horizontal, int vertical) {
+	public ISquare getSquare(int horizontal, int vertical) {
 		return squares[horizontal][vertical];
+	}
+	
+	public ISquare getSquareInWindDirection(ISquare square){
+		return getSquareInDirection(square, windDirection);
+	}
+
+	public ISquare getSquareInDirection(ISquare square, WindDirection direction) {
+		if(direction==WindDirection.nord && square.getHorizontalPosition()>0){
+			return squares[square.getHorizontalPosition()-1][square.getVerticalPosition()];
+		}else{if(direction==WindDirection.east && square.getVerticalPosition()<4){
+			return squares[square.getHorizontalPosition()][square.getVerticalPosition()+1];
+		}else{if(direction==WindDirection.south && square.getHorizontalPosition()<4){
+			return squares[square.getHorizontalPosition()+1][square.getVerticalPosition()];
+		}else{if(direction==WindDirection.west && square.getVerticalPosition()>0){
+			return squares[square.getHorizontalPosition()][square.getVerticalPosition()-1];
+		}}}}
+		return new NullSquare();
+	}
+
+	public ArrayList<ISquare> getNeighbourSquares(ISquare square) {
+		ArrayList<ISquare> neighbourSquares= new ArrayList<ISquare>();
+		for(WindDirection direction: WindDirection.values()){
+			if(!getSquareInDirection(square, direction).isNullSquare())
+				neighbourSquares.add(getSquareInDirection(square, direction));
+		}
+		
+		return neighbourSquares;
 	}
 
 }
