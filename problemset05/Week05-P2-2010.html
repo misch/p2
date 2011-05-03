@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC
+    "-//W3C//DTD XHTML 1.1 plus MathML 2.0 plus SVG 1.1//EN"
+    "http://www.w3.org/2002/04/xhtml-math-svg/xhtml-math-svg.dtd">
+<html xmlns:svg='http://www.w3.org/2000/svg' xml:lang='en' xmlns='http://www.w3.org/1999/xhtml'>
+<head><meta content='application/xhtml+xml;charset=utf-8' http-equiv='Content-type' /><title></title></head>
+<body>
+<h1 id='p2_bungen_iterative_development'>P2 Übungen, Iterative Development</h1>
+
+<p><img src='ursuppe-pic-by-christian-witter.jpg' alt='A ludo board' /></p>
+
+<p>ACME Inc. is doing consulting now. The industry has learnt that ACME is the place to go to for ASCII graphics implementation of board games. Today, an implementation of Doris &amp; Frank&#8217;s boardgame Ursuppe is called for.</p>
+
+<p>Since it&#8217;s a large project, the clients insist that you phase out development. The first stage will only implement the board and its rendering. The second stage will add the basic game logic, without supporting any of the provided genes, or interactivity. The third and final stage will add genes to the game.</p>
+
+<h2 id='rules'>Rules</h2>
+
+<p><a href='Ursuppe_Rules.pdf'>The game rules</a>.</p>
+
+<p>Simplifications:<br /> You may ask for more simplifications, if you run into issues. Send an email to <a href='mailto:schwarz@iam.unibe.ch'>Niko</a>.</p>
+
+<ul>
+<li>You may assume exactly 3 players.</li>
+
+<li>You need only implement 4 genes.</li>
+</ul>
+
+<h2 id='first_stage'>First stage</h2>
+
+<p>For stage 1, ACME <em>only</em> committed to their clients to initialize the Ursuppe board for 3 players. Verify that the board is initialized according to the game rules, and that it is displayed correctly (i.e., the correct number of amebas are on the field: 2 per player, you can place the amebas at random in this stage, all fields have all 6 foodstuff cubes on them, 2 of each color.)</p>
+
+<ul>
+<li>Implement the <code>Board</code> and <code>Square</code> classes.</li>
+
+<li>Write Unit tests and make sure that all tests are green.</li>
+
+<li>The board should be able to render itself as ASCII graphics.</li>
+
+<li>(This is optional if your Snakes and ladders board is constructed by a Guice provider): The board of the game must be constructed by a Guice provider.</li>
+</ul>
+
+<p>When you&#8217;re done, <a href='http://kernel.org/pub/software/scm/git/docs/git-tag.html'>tag</a> your solution as <code>ursuppe01</code> with the <code>-a</code> option on (<code>git tag -a ludo01</code>). Be sure to push with the <code>--tags</code> option so we can see your tag. See <a href='http://kernel.org/pub/software/scm/git/docs/git-push.html'>man git-push</a>.</p>
+
+<h2 id='second_stage'>Second stage</h2>
+
+<p>After the successful stage 1, your contract was extended. (Luckily, you&#8217;re an experienced board game developer by now.) For stage 2, ACME promised the client to deliver a simplified variant of the game. The game shall be played automatically (as opposed to interactively) by three players. The players may not buy genes, and amebas never move, but always drift (the terms are explained in the game rules.).</p>
+
+<ul>
+<li>Complete the <code>Player</code> class.</li>
+
+<li>Write up a <code>Game</code> class that takes the game thru all 6 phases of a round. In phase 1, amebas always drift.</li>
+
+<li>Write JUnit tests that indicate that your game works properly according to the game rules. Achieve test coverage above 50 %.</li>
+
+<li>Write a <code>shouldRunRandomGame</code> smoke test method that makes three players play (automatically and not interactively). The output shows whose turn it is and the board after every step.</li>
+</ul>
+
+<p>When you&#8217;re done, tag your solution as <code>ursuppe02</code>. Be sure to push the tag using the <code>--tags</code> option as in stage 1.</p>
+
+<h2 id='third_stage'>Third stage</h2>
+
+<p>In this stage:</p>
+
+<ul>
+<li>Implement moving of amebas, and implement any 4 basic genes (no advanced genes).</li>
+</ul>
+
+<p>When you&#8217;re done, tag your solution as <code>ludo03</code>. Be sure to push the tag using the <code>--tags</code> option as in stage 1.</p>
+
+<h1 id='deadline'>Deadline</h1>
+
+<p>The first stage is due next week on Wednesday, March 30, as usual. The other 2 stages, however, are both due the same day, on May 4, 2011.</p>
+
+<p><strong>Copyright</strong> The Ursuppe game, as well as the rules sheet, belong to <a href='http://doris-frank.de/'>Doris and Frank</a>. The screenshot of the game is due to Christian Witter.</p>
+</body></html>

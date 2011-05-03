@@ -54,9 +54,9 @@ public class GameTest {
 	
 	@Given("newGame")
 	public Game testFoodstuff(Game game){
-		assertTrue(game.getSquare(3,2).countGreenFood()==2);
-		assertTrue(game.getSquare(3,2).countBlueFood()==2);
-		assertTrue(game.getSquare(3,2).countRedFood()==2);
+		assertTrue(game.getSquare(3,2).countFood("green")==2);
+		assertTrue(game.getSquare(3,2).countFood("blue")==2);
+		assertTrue(game.getSquare(3,2).countFood("red")==2);
 		assertTrue(game.getSquare(3,2).countTotalFood()==6);
 		return game;
 	}
