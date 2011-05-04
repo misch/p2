@@ -100,11 +100,11 @@ public class Player {
 		ArrayList<ISquare> neighbourSquares= getNeighbourSquares();
 		ArrayList<ISquare> goodNeighbourSquares= new ArrayList<ISquare>();
 		for(ISquare square: neighbourSquares){
+			int amoebasOnSquare=0;
 			for(Amoeba amoeba: amoebas){
-				if(amoeba.getSquare().equals(square)){
-					goodNeighbourSquares.add(square);
-				}
+				if(amoeba.getSquare().equals(square)){amoebasOnSquare++;}
 			}
+			if(amoebasOnSquare==0){goodNeighbourSquares.add(square);}
 		}
 		return goodNeighbourSquares;
 	}
@@ -118,11 +118,16 @@ public class Player {
 	}
 
 	public void removeDeadAmoebas() {
-		for(Amoeba amoeba: amoebas){
-			if(amoeba.countDamagePoints()>=2){
-				amoeba.die();
-				amoebas.remove(amoeba);
-			}
+		int i=0;
+		while(i<amoebas.size()){
+			if(amoebas.get(i).countDamagePoints()>=2){
+				amoebas.get(i).die();
+				amoebas.remove(i);
+			}else{i++;}
 		}
+	}
+
+	public String getName() {
+		return name;
 	}
 }
