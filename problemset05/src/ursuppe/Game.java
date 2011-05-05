@@ -63,30 +63,35 @@ public class Game {
 			player.removeDeadAmoebas();
 		}
 	}
-
-	private void playSecondPhase4() {
+	
+	@ForTestingOnly
+	public void playSecondPhase4() {
 		for(Player player: playerManager.getPlayersInAscendingOrder()){
 			player.addBiopoints(10);
 			player.divideAmoebas();
 		}
 	}
 
-	private void playSecondPhase3() {
+	@ForTestingOnly
+	public void playSecondPhase3() {
 		
 	}
-
-	private void playSecondPhase2() {
+	
+	@ForTestingOnly
+	public void playSecondPhase2() {
 		board.setWindDirection();
 	}
-
-	private void playSecondPhase1() {
+	
+	@ForTestingOnly
+	public void playSecondPhase1() {
 		for(Player player: playerManager.getPlayersInAscendingOrder()){
 			player.moveAndFeedAmoebas();
 		}
 		
 	}
-
-	private void playFirstPhase() {
+	
+	@ForTestingOnly
+	public void playFirstPhase() {
 		for(Player player: playerManager.getPlayersInAscendingOrder()){
 			player.initAmoeba();
 		}
@@ -126,6 +131,9 @@ public class Game {
 	
 	public String toString(){
 		return board.toString();
+	}
+	public Board getBoard(){
+		return board;
 	}
 
 }

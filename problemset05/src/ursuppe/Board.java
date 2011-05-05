@@ -110,5 +110,9 @@ public class Board {
 		
 		return neighbourSquares;
 	}
+	
+	public WindDirection getWindDirection(){
+		return windDirection;
+	}
 
 }

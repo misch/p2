@@ -69,5 +69,12 @@ public class Amoeba {
 	public void die() {
 		this.leaveSquare();
 	}
+	public int getBioPoints() {
+		return bioPoints;
+	}
+	
+	public int getDamagePoints() {
+		return damagePoints;
+	}
 
 }

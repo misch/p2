@@ -125,4 +125,14 @@ public class Player {
 			}
 		}
 	}
+	
+	public ArrayList<Amoeba> getAmoebas(){
+		return new ArrayList<Amoeba>(amoebas);
+	}
+	public Colour getColour(){
+		return colour;
+	}
+	public int getBioPoints(){
+		return biopoints;
+	}
 }
