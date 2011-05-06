@@ -34,16 +34,16 @@ public class Amoeba {
 		
 	}
 
-
 	private void leaveSquare() {
 		square.leave(this);
 		square=null;
 	}
-
+	
 	private void enterSquare(ISquare square) {
 		this.square=square;
 		this.square.enter(this);
 	}
+	
 	public String toString(){
 		return colour.toString();
 	}
@@ -68,6 +68,13 @@ public class Amoeba {
 
 	public void die() {
 		this.leaveSquare();
+	}
+	public int getBioPoints() {
+		return bioPoints;
+	}
+	
+	public int getDamagePoints() {
+		return damagePoints;
 	}
 
 }

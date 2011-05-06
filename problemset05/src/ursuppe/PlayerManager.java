@@ -7,8 +7,8 @@ public class PlayerManager {
 	
 	private ArrayList<Player> players;
 	private Player[] scores= new Player[51];
-	private final int winning=42;
-	private Player winner;
+	private final int WINNING=42;
+	private Player winner=null;
 	
 	public PlayerManager(ArrayList<Player> players){
 		this.players=players;
@@ -45,8 +45,30 @@ public class PlayerManager {
 		player.addScore(addedScore);
 		
 	}
+	private void checkWinner() {
+		Player potentialWinner=players.get(0);
+		for(Player player: players){
+			if(player.getScore()>potentialWinner.getScore()){
+				potentialWinner=player;
+			}
+		}
+		if(potentialWinner.getScore()>=this.WINNING){
+			this.winner=potentialWinner;
+		}
+	}
 	public Player getWinner() {
+		checkWinner();
 		return winner;
+	}
+	
+	public String scoresToString(){
+		String result="|";
+		for(Player player:scores){
+			if(player!=null){
+				result+=player.getName()+"|";
+			}else{result+="  |";}
+		}
+		return result;
 	}
 	
 }
