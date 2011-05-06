@@ -27,8 +27,7 @@ public class Board {
 	public void setWindDirection() {
 		windDirection=getRandomWindDirection();
 	}
-
-	public static WindDirection getRandomWindDirection() {
+	private WindDirection getRandomWindDirection() {
 		WindDirection direction = null;
 		int dir = 1 + (int) (4 * Math.random());
 		assert dir >= 1 && dir <= 4;
@@ -48,7 +47,8 @@ public class Board {
 		return direction;
 	}
 	
-	private boolean isInBoardRange(int horizontal, int vertical){
+	@ForTestingOnly
+	public boolean isInBoardRange(int horizontal, int vertical){
 		
 		if((horizontal==0 && vertical==0) || (horizontal==2 && vertical ==2) || (horizontal==4 && vertical !=3)){
 			return false;}

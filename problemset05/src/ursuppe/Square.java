@@ -34,8 +34,8 @@ public class Square implements ISquare {
 	public void enter(Amoeba amoeba){
 		amoebas.add(amoeba);
 	}
-
-	private void initFood() {
+	@ForTestingOnly
+	public void initFood() {
 		assert food.isEmpty();
 		this.addGreenFood(2);
 		this.addBlueFood(2);

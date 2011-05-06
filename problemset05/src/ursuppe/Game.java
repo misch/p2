@@ -26,6 +26,7 @@ public class Game {
 	private ArrayList<Player> players = new ArrayList<Player>();
 	private Die die;
 	private PlayerManager playerManager;
+	private String winner;
 	
 	public Game() {
 		board=new Board(this);
@@ -34,9 +35,9 @@ public class Game {
 	}
 
 	public void play() {
+		System.out.println(this);
+		playFirstPhase();
 		while(playerManager.getWinner()==null){
-			System.out.println(this);
-			playFirstPhase();
 			System.out.println(this);
 			playSecondPhase1();
 			System.out.println(this);
@@ -50,15 +51,19 @@ public class Game {
 			System.out.println(this);
 			playSecondPhase6();
 		}
+		setWinner();
+		System.out.println(winner + " wins!");
 	}
-	
-	private void playSecondPhase6() {
+	@ForTestingOnly
+	public void playSecondPhase6() {
 		for(Player player: playerManager.getPlayersInAscendingOrder()){
-			
+			if(player.countAmoebas()<=4){
+				playerManager.addScore(player, player.countAmoebas()-2);
+			}else{playerManager.addScore(player, player.countAmoebas()-1);}
 		}
 	}
-
-	private void playSecondPhase5() {
+	@ForTestingOnly
+	public void playSecondPhase5() {
 		for(Player player: playerManager.getPlayersInAscendingOrder()){
 			player.removeDeadAmoebas();
 		}
@@ -111,7 +116,6 @@ public class Game {
 	public static void main(String[] args){
 		Game game=new Game();
 		game.play();
-		System.out.println(game);
 	}
 	
 	public ISquare getSquare(int horizontal, int vertical) {
@@ -130,10 +134,17 @@ public class Game {
 	}
 	
 	public String toString(){
-		return board.toString();
+		return board.toString()+"\n"+playerManager.scoresToString()+"\n";
 	}
 	public Board getBoard(){
 		return board;
 	}
-
+	
+	private void setWinner(){
+		this.winner = playerManager.getWinner().getName();
+	}
+	
+	public String getWinner(){
+		return winner;
+	}
 }

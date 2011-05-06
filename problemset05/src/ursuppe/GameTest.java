@@ -11,8 +11,9 @@ import ch.unibe.jexample.JExample;
 import ch.unibe.jexample.Given;
 import org.junit.Test;
 
-
 import org.junit.runner.RunWith;
+
+import ursuppe.Board.WindDirection;
 
 @RunWith(JExample.class)
 
@@ -85,10 +86,6 @@ public class GameTest {
 		assertTrue(fritz.getAmoebas().get(1).getSquare().countAmoebas()>=1);
 		assertTrue(nathanael.getAmoebas().get(1).getSquare().countAmoebas()>=1);
 		
-		/*assertTrue(hans.getAmoebas().get(0).getSquare().countFood(hans.getColour().toString())>2);
-		assertTrue(fritz.getAmoebas().get(1).getSquare().countFood(fritz.getColour().toString())>2);
-		assertTrue(nathanael.getAmoebas().get(1).getSquare().countFood(nathanael.getColour().toString())>2);*/
-		
 		for(int i=0; i<5; i++)
 			for(int j=0; j<5; j++)
 				assertTrue(game.getSquare(i, j).countTotalFood()<=6);
@@ -105,8 +102,63 @@ public class GameTest {
 	
 	@Given("testPlaySecondPhase2")
 	public Game testPlaySecondPhase4(Game game){
+		int hansAmoebasBefore = hans.countAmoebas();
+		int nathanaelAmoebasBefore = nathanael.countAmoebas();
+		int fritzAmoebasBefore = fritz.countAmoebas();
 		game.playSecondPhase4();
 		
+		assertTrue(hans.countAmoebas() > hansAmoebasBefore);
+		assertTrue(nathanael.countAmoebas() > nathanaelAmoebasBefore);
+		assertTrue(fritz.countAmoebas() > fritzAmoebasBefore);
+		return game;
+	}
+	
+	@Given("testPlaySecondPhase4")
+	public Game testPlaySecondPhase5(Game game){
+		game.playSecondPhase5();
+		ArrayList<Amoeba> hansAmoebas = hans.getAmoebas();
+		ArrayList<Amoeba> nathanaelAmoebas = nathanael.getAmoebas();
+		ArrayList<Amoeba> fritzAmoebas = fritz.getAmoebas();
+		
+		for (int i = 0; i< hansAmoebas.size(); i++)
+			assertTrue(hansAmoebas.get(i).getDamagePoints()<2);
+		
+		for (int i = 0; i< nathanaelAmoebas.size(); i++)
+			assertTrue(nathanaelAmoebas.get(i).getDamagePoints()<2);
+		
+		for (int i = 0; i< fritzAmoebas.size(); i++)
+			assertTrue(fritzAmoebas.get(i).getDamagePoints()<2);
+		
+		return game;
+	}
+	
+	@Given("newGame")
+	public Game testPlaySecondPhase6(Game game){
+		int hansScoreBefore = hans.getScore();
+		int nathanaelScoreBefore = nathanael.getScore();
+		int fritzScoreBefore = fritz.getScore();
+		
+		game.playSecondPhase6();
+		
+		assertTrue(hans.getScore()<=hansScoreBefore);
+		assertTrue(nathanael.getScore()<=nathanaelScoreBefore);
+		assertTrue(fritz.getScore()<=fritzScoreBefore);
+		return game;
+	}
+	
+	@Given("newGame")
+	public Game testPlay(Game game){
+		
+		game.play();
+		
+		assertNotNull(game.getWinner());
+		return game;
+	}
+	
+	@Given("newGame")
+	public Game testGetSquareInDirection(Game game){
+		WindDirection east = WindDirection.east;
+		assertTrue(game.getSquareInDirection(game.getSquare(3,2), east).equals(game.getSquare(3,3)));
 		return game;
 	}
 }

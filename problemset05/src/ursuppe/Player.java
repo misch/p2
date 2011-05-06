@@ -26,9 +26,10 @@ public class Player {
 	public void initAmoeba(){
 		Integer[] position;
 		do{
-		position=setRandomPosition();
-		}while(!(board.getSquare(position[0], position[1]).countAmoebas() == 0));
-		ISquare square = board.getSquare(position[0], position[1]);
+			position=setRandomPosition();
+		}
+		while(!(board.getSquare(position[0], position[1]).countAmoebas() == 0));
+			ISquare square = board.getSquare(position[0], position[1]);
 		amoebas.add(new Amoeba(game, this, colour, square));
 	}
 
@@ -100,11 +101,11 @@ public class Player {
 		ArrayList<ISquare> neighbourSquares= getNeighbourSquares();
 		ArrayList<ISquare> goodNeighbourSquares= new ArrayList<ISquare>();
 		for(ISquare square: neighbourSquares){
+			int amoebasOnSquare=0;
 			for(Amoeba amoeba: amoebas){
-				if(amoeba.getSquare().equals(square)){
-					goodNeighbourSquares.add(square);
-				}
+				if(amoeba.getSquare().equals(square)){amoebasOnSquare++;}
 			}
+			if(amoebasOnSquare==0){goodNeighbourSquares.add(square);}
 		}
 		return goodNeighbourSquares;
 	}
@@ -118,11 +119,12 @@ public class Player {
 	}
 
 	public void removeDeadAmoebas() {
-		for(Amoeba amoeba: amoebas){
-			if(amoeba.countDamagePoints()>=2){
-				amoeba.die();
-				amoebas.remove(amoeba);
-			}
+		int i=0;
+		while(i<amoebas.size()){
+			if(amoebas.get(i).countDamagePoints()>=2){
+				amoebas.get(i).die();
+				amoebas.remove(i);
+			}else{i++;}
 		}
 	}
 	
@@ -134,5 +136,8 @@ public class Player {
 	}
 	public int getBioPoints(){
 		return biopoints;
+	}
+	public String getName() {
+		return name;
 	}
 }

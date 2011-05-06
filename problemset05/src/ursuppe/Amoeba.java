@@ -34,16 +34,16 @@ public class Amoeba {
 		
 	}
 
-
 	private void leaveSquare() {
 		square.leave(this);
 		square=null;
 	}
-
+	
 	private void enterSquare(ISquare square) {
 		this.square=square;
 		this.square.enter(this);
 	}
+	
 	public String toString(){
 		return colour.toString();
 	}
