@@ -27,8 +27,14 @@ public class Board {
 	public void setWindDirection() {
 		windDirection=getRandomWindDirection();
 	}
+<<<<<<< HEAD
+
+	public static WindDirection getRandomWindDirection() {
+		WindDirection direction;
+=======
 	private WindDirection getRandomWindDirection() {
 		WindDirection direction = null;
+>>>>>>> ursuppe
 		int dir = 1 + (int) (4 * Math.random());
 		assert dir >= 1 && dir <= 4;
 		switch(dir){
