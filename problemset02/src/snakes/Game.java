@@ -44,13 +44,6 @@ public class Game implements IGame {
 	@Inject
 	public Game(IDie die) {
 		this.die=die;
-		Player jack = new Player("Jack");
-		Player jill = new Player("Jill");
-		Player[] args = { jack, jill };
-		setUp(12, args);
-		this.setSquareToLadder(2, 4);
-		this.setSquareToLadder(7, 2);
-		this.setSquareToSnake(11, -6);
 	}
 	
 	public Game(int size, Player[] initPlayers, IDie die) {

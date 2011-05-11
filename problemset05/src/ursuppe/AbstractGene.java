@@ -1,5 +1,6 @@
 package ursuppe;
 
+//DR nice!
 public abstract class AbstractGene implements IGene{
 	
 	protected Player player;

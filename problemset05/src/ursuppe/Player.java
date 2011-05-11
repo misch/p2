@@ -61,6 +61,7 @@ public class Player {
 		return score;
 	}
 
+	//DR HERE! you should tell if a player choose to move or to drift!
 	public void moveAndFeedAmoebas(Die die) {
 		for(Amoeba amoeba: amoebas){
 			if(biopoints>0 && Math.random()<0.5){
@@ -146,6 +147,9 @@ public class Player {
 		return name;
 	}
 	
+	/*DR this is where you can hook up some interaction with real players
+	 * and it would be nice if you can see which gene which player bought (some output probably?)
+	 */
 	public void buyGenes(){
 		ArrayList<IGene> genesInPriceRange=getGenesInPriceRange();
 		while(genesInPriceRange.size()!=0){
