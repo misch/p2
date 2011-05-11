@@ -5,10 +5,10 @@ import java.util.*;
 public class Board {
 	
 	public enum WindDirection { 
-		nord("nord"),
-		east("east"),
-		south("south"),
-		west("west");
+		nord("~ nord ~"),
+		east("~ east ~"),
+		south("~ south ~"),
+		west("~ west ~");
 		private String representation;
 		WindDirection(String s) { this.representation = s; }
 		public String toString() { return this.representation; }
@@ -17,17 +17,27 @@ public class Board {
 	private ISquare[][] squares= new ISquare[5][5];
 	private Game game;
 	private WindDirection windDirection;
+	private int ozoneLayer;
 	
 	public Board(Game game){
 		this.game=game;
 		initSquares();
-		setWindDirection();
+		setEnvironment();
 	}
 	
+	public void setEnvironment() {
+		setWindDirection();
+		setOzoneLayer();
+	}
+
+	private void setOzoneLayer() {
+		this.ozoneLayer = 5 + (int) (15 * Math.random());
+	}
+
 	public void setWindDirection() {
 		windDirection=getRandomWindDirection();
 	}
-	private WindDirection getRandomWindDirection() {
+	public WindDirection getRandomWindDirection() {
 		WindDirection direction = null;
 		int dir = 1 + (int) (4 * Math.random());
 		assert dir >= 1 && dir <= 4;
@@ -72,7 +82,7 @@ public class Board {
 		for(int horizontal=0; horizontal<5;horizontal++){
 			for(int vertical=0; vertical<5;vertical++){
 				if(horizontal==2 && vertical==2){
-					result+= " [ ~ "+windDirection.toString()+" ~ ] ";
+					result+=String.format("[%1$15s , Ozon = %2$-8s] ", windDirection.toString(), ozoneLayer);
 				}else{result+= squares[horizontal][vertical].toString();}
 			}
 			result+="\n";
@@ -113,6 +123,10 @@ public class Board {
 	
 	public WindDirection getWindDirection(){
 		return windDirection;
+	}
+
+	public int getOzoneLayer() {
+		return ozoneLayer;
 	}
 
 }

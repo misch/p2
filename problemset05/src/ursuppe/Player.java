@@ -10,17 +10,19 @@ public class Player {
 	private ArrayList<Amoeba> amoebas=new ArrayList<Amoeba>();
 	private Colour colour;
 	private Game game;
-	private int lastRoll;
 	private int score;
 	private int biopoints;
 	private Board board;
+	private ArrayList<IGene> genes=new ArrayList<IGene>();
+	private int divisionCost;
 	
 	public Player(Game game, Board board, String name, Colour colour){
 		this.name=name;
 		this.colour=colour;
 		this.game=game;
-		this.biopoints=0;
+		this.biopoints=4;
 		this.board=board;
+		this.divisionCost=6;
 	}
 	
 	public void initAmoeba(){
@@ -30,7 +32,7 @@ public class Player {
 		}
 		while(!(board.getSquare(position[0], position[1]).countAmoebas() == 0));
 			ISquare square = board.getSquare(position[0], position[1]);
-		amoebas.add(new Amoeba(game, this, colour, square));
+		amoebas.add(new Amoeba(game, this, colour, square, genes));
 	}
 
 	private Integer[] setRandomPosition() {
@@ -51,13 +53,6 @@ public class Player {
 	public int countAmoebas() {
 		return amoebas.size();
 	}
-	
-	public void setLastRoll(int roll){
-		this.lastRoll=roll;
-	}
-	public int getLastRoll(){
-		return this.lastRoll;
-	}
 
 	public void addScore(int score) {
 		this.score +=score;		
@@ -66,12 +61,22 @@ public class Player {
 		return score;
 	}
 
-	public void moveAndFeedAmoebas() {
+	public void moveAndFeedAmoebas(Die die) {
 		for(Amoeba amoeba: amoebas){
-			amoeba.drift();
+			if(biopoints>0 && Math.random()<0.5){
+				tryToMove(die, amoeba);
+			}else{amoeba.drift();}
 			amoeba.feed();
 		}
 		
+	}
+
+	public void tryToMove(Die die, Amoeba amoeba) {
+		int roll=die.roll();
+		if(roll<=4 || roll==6){
+			amoeba.move(board.getRandomWindDirection());
+		}
+		biopoints--;
 	}
 
 	public void addBiopoints(int quantity) {
@@ -79,14 +84,14 @@ public class Player {
 	}
 
 	public void divideAmoebas() {
-		while(biopoints>=6 && amoebas.size()<7){
+		while(biopoints>=divisionCost && amoebas.size()<7){
 			if(amoebas.size()<=1){
 				initAmoeba();
-				biopoints -=6;
+				biopoints -=divisionCost;
 			}else{
 				ISquare newSquare=findGoodNeighbourSquare();
-				amoebas.add(new Amoeba(game, this, colour, newSquare));
-				biopoints -= 6;
+				amoebas.add(new Amoeba(game, this, colour, newSquare, genes));
+				biopoints -=divisionCost;
 			}
 		}
 	}
@@ -121,7 +126,7 @@ public class Player {
 	public void removeDeadAmoebas() {
 		int i=0;
 		while(i<amoebas.size()){
-			if(amoebas.get(i).countDamagePoints()>=2){
+			if(amoebas.get(i).getDamagePoints()>=amoebas.get(i).getFatalDamage()){
 				amoebas.get(i).die();
 				amoebas.remove(i);
 			}else{i++;}
@@ -139,5 +144,69 @@ public class Player {
 	}
 	public String getName() {
 		return name;
+	}
+	
+	public void buyGenes(){
+		ArrayList<IGene> genesInPriceRange=getGenesInPriceRange();
+		while(genesInPriceRange.size()!=0){
+			game.getGenePool().buyGene(genesInPriceRange.get(0), this);
+			genesInPriceRange=getGenesInPriceRange();
+		}
+	}
+
+	public ArrayList<IGene> getGenesInPriceRange() {
+		ArrayList<IGene> availableGenes=game.getAvailableGenes();
+		ArrayList<IGene> genesInPriceRange=new ArrayList<IGene>();
+		for(IGene gene:availableGenes){
+			if(gene.getPrice()<=this.biopoints)
+				genesInPriceRange.add(gene);
+		}
+		return genesInPriceRange;
+	}
+
+	public void pay(int price) {
+		assert this.biopoints>=price;
+		
+	}
+
+	public void addGene(IGene gene) {
+		genes.add(gene);
+		gene.activateOnPlayer(this);
+		for(Amoeba amoeba:amoebas){
+			amoeba.activateGene(gene);
+		}
+		
+	}
+	public void setDivisionCost(int divisionCost) {
+		this.divisionCost = divisionCost;
+	}
+
+	public int getDivisionCost() {
+		return divisionCost;
+	}
+
+	public void removeGene(IGene gene) {
+		genes.remove(gene);
+	}
+	
+	public int getMutationPoints(){
+		int result=0;
+		for(IGene gene:genes){
+			result+=gene.getMutationPoints();
+		}
+		return result;
+	}
+
+	public void payBack(int diff) {
+		if (diff <= 0) return;
+		
+		if (diff <= biopoints)
+			biopoints -= diff;
+		else {
+			IGene gene = genes.get(0);
+			game.getGenePool().returnGene(gene, this);
+			diff -= gene.getMutationPoints();
+			payBack(diff);
+		}
 	}
 }

@@ -32,7 +32,7 @@ public class NullSquare implements ISquare {
 	}
 	
 	public String toString(){
-		return " |____________| ";
+		return "|_________________________________| ";
 	}
 
 	public int countAmoebas() {
@@ -54,9 +54,7 @@ public class NullSquare implements ISquare {
 	}
 	public void addFood(String colour, int quantity) {
 	}
-	
-	public void eatFoodStuff(String string) {
-		
+	public void eatFoodStuff(String string, int amount) {
 	}
 
 }
