@@ -14,9 +14,9 @@ import ursuppe.Board.WindDirection;
 public class Game {
 	
 	public enum Colour { 
-		green("green"),
-		blue("blue"),
-		red("red");
+		green("G"),
+		blue("B"),
+		red("R");
 		private String representation;
 		Colour(String s) { this.representation = s; }
 		public String toString() { return this.representation; }
@@ -27,29 +27,33 @@ public class Game {
 	private Die die;
 	private PlayerManager playerManager;
 	private String winner;
+	private GenePool pool;
 	
 	public Game() {
 		board=new Board(this);
 		initPlayers();
 		die= new Die();
+		pool=new GenePool(this);
 	}
 
 	public void play() {
 		System.out.println(this);
 		playFirstPhase();
+		boolean firstRound=true;
 		while(playerManager.getWinner()==null){
-			System.out.println(this);
 			playSecondPhase1();
-			System.out.println(this);
-			playSecondPhase2();
-			System.out.println(this);
+			System.out.println("Phase 1 \n"+this);
+			playSecondPhase2(firstRound);
+			System.out.println("Phase 2 \n"+this);
 			playSecondPhase3();
-			System.out.println(this);
+			System.out.println("Phase 3 \n"+this);
 			playSecondPhase4();
-			System.out.println(this);
+			System.out.println("Phase 4 \n"+this);
 			playSecondPhase5();
-			System.out.println(this);
+			System.out.println("Phase 5 \n"+this);
 			playSecondPhase6();
+			System.out.println("Phase 6 \n"+this);
+			firstRound=false;
 		}
 		setWinner();
 		System.out.println(winner + " wins!");
@@ -79,18 +83,31 @@ public class Game {
 
 	@ForTestingOnly
 	public void playSecondPhase3() {
+		for(Player player: playerManager.getPlayersInDescendingOrder()){
+			player.buyGenes();
+		}
 		
 	}
 	
 	@ForTestingOnly
-	public void playSecondPhase2() {
-		board.setWindDirection();
+	public void playSecondPhase2(boolean firstRound) {
+		board.setEnvironment();
+		if(!firstRound){
+			for(Player player: playerManager.getPlayersInAscendingOrder()){
+				int diff = player.getMutationPoints() - board.getOzoneLayer();
+				if(diff > 0){
+					player.payBack(diff);
+				}
+				
+			}
+		}
+		
 	}
 	
 	@ForTestingOnly
 	public void playSecondPhase1() {
 		for(Player player: playerManager.getPlayersInAscendingOrder()){
-			player.moveAndFeedAmoebas();
+			player.moveAndFeedAmoebas(die);
 		}
 		
 	}
@@ -134,7 +151,7 @@ public class Game {
 	}
 	
 	public String toString(){
-		return board.toString()+"\n"+playerManager.scoresToString()+"\n";
+		return board.toString()+"\n"+playerManager.scoresToString()+"\n \n";
 	}
 	public Board getBoard(){
 		return board;
@@ -146,5 +163,12 @@ public class Game {
 	
 	public String getWinner(){
 		return winner;
+	}
+
+	public ArrayList<IGene> getAvailableGenes() {
+		return pool.getAvailableGenes();
+	}
+	public GenePool getGenePool(){
+		return pool;
 	}
 }

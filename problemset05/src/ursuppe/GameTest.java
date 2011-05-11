@@ -56,9 +56,9 @@ public class GameTest {
 	
 	@Given("newGame")
 	public Game testFoodstuff(Game game){
-		assertTrue(game.getSquare(3,2).countFood("green")==2);
-		assertTrue(game.getSquare(3,2).countFood("blue")==2);
-		assertTrue(game.getSquare(3,2).countFood("red")==2);
+		assertTrue(game.getSquare(3,2).countFood("G")==2);
+		assertTrue(game.getSquare(3,2).countFood("B")==2);
+		assertTrue(game.getSquare(3,2).countFood("R")==2);
 		assertTrue(game.getSquare(3,2).countTotalFood()==6);
 		return game;
 	}
@@ -94,7 +94,7 @@ public class GameTest {
 	
 	@Given("testPlaySecondPhase1")
 	public Game testPlaySecondPhase2(Game game){
-		game.playSecondPhase2();
+		game.playSecondPhase2(false);
 		
 		assertNotNull(game.getBoard().getWindDirection());
 		return game;
@@ -161,4 +161,5 @@ public class GameTest {
 		assertTrue(game.getSquareInDirection(game.getSquare(3,2), east).equals(game.getSquare(3,3)));
 		return game;
 	}
+	
 }

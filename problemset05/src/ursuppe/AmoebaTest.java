@@ -29,10 +29,10 @@ public class AmoebaTest {
 		player = players.remove();
 		colour = player.getColour();
 		square = game.getSquare(3,2);
-		Amoeba amoeba = new Amoeba(game, player, colour, square);
+		Amoeba amoeba = new Amoeba(game, player, colour, square, new ArrayList<IGene>());
 		
-		assertTrue(amoeba.getBioPoints()==36);
 		assertTrue(amoeba.getDamagePoints()==0);
+		assertTrue(amoeba.getNeededFood()==3);
 		 
 		return amoeba;
 	}
@@ -49,7 +49,6 @@ public class AmoebaTest {
 
 		WindDirection dir = game.getBoard().getWindDirection();
 		amoeba.drift();
-		
 		assertTrue(amoeba.getSquare().equals(game.getSquareInDirection(square, dir)));
 	}
 	
@@ -71,7 +70,7 @@ public class AmoebaTest {
 		
 		assertTrue(square.countTotalFood() == 5);
 		assertTrue(square.countFood(colour.toString()) == 4);
-		assertTrue(amoeba.countDamagePoints() == 1);
+		assertTrue(amoeba.getDamagePoints() == 1);
 	}
 	
 	@Given("newAmoeba")

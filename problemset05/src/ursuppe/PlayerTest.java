@@ -25,8 +25,8 @@ public class PlayerTest {
 		Player player = new Player(game, board, "player", Colour.red);
 		
 		assertTrue(player.getAmoebas().size()==0);
-		assertTrue(player.getBioPoints()==0);
-		assertTrue(player.getColour().toString().equals("red"));
+		assertTrue(player.getBioPoints()==4);
+		assertTrue(player.getColour().toString().equals("R"));
 		assertTrue(player.getName().equals("player"));
 		assertTrue(player.getScore()==0);
 		return player;
@@ -50,8 +50,8 @@ public class PlayerTest {
 	
 	@Given("testInitAmoeba")
 	public Player testMoveAndFeedAmoebas(Player player){
-		player.moveAndFeedAmoebas();
-		assertTrue(player.getAmoebas().get(0).getSquare().countFood("red")==4);
+		player.moveAndFeedAmoebas(new Die());
+		assertTrue(player.getAmoebas().get(0).getSquare().countFood("R")==4);
 		assertTrue(player.getAmoebas().get(0).getSquare().countTotalFood()==5);
 		
 		return player;
@@ -60,21 +60,26 @@ public class PlayerTest {
 	@Given("testInitAmoeba")
 	public Player testAddBiopoints(Player player){
 		player.addBiopoints(10);
-		assertTrue(player.getBioPoints()==10);
+		assertTrue(player.getBioPoints()==14);
 		return player;
 	}
 	
 	@Given("testAddBiopoints")
 	public Player testDivideAmoebas(Player player){
 		player.divideAmoebas();
-		assertTrue(player.getBioPoints()==4);
-		assertTrue(player.countAmoebas()==2);
+		assertTrue(player.getBioPoints()==2);
+		assertTrue(player.countAmoebas()==3);
 		
 		player.addBiopoints(8);
 		player.divideAmoebas();
-		assertTrue(player.getBioPoints()==0);
+		assertTrue(player.getBioPoints()==4);
 		assertTrue(player.countAmoebas()==4);
 		
 		return player;
+	}
+	@Given("newPlayer")
+	public void testPayBack(Player player){
+		player.payBack(3);
+		assertTrue(player.getBioPoints()==1);
 	}
 }

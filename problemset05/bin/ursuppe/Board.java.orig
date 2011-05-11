@@ -24,32 +24,37 @@ public class Board {
 		setWindDirection();
 	}
 	
-<<<<<<< HEAD
-	//DR Have a look at enums for directions and colors!
-	private void setWindDirection() {
-=======
 	public void setWindDirection() {
 		windDirection=getRandomWindDirection();
 	}
+<<<<<<< HEAD
 
 	public static WindDirection getRandomWindDirection() {
 		WindDirection direction;
->>>>>>> 6d6a5a21c96c73cbcb47b3b405b6e8378aca63d3
+=======
+	private WindDirection getRandomWindDirection() {
+		WindDirection direction = null;
+>>>>>>> ursuppe
 		int dir = 1 + (int) (4 * Math.random());
 		assert dir >= 1 && dir <= 4;
-		if(dir==1){
+		switch(dir){
+		case(1):
 			direction=WindDirection.nord;
-		}else if(dir==2){
+			break;
+		case(2):
 			direction=WindDirection.east;
-		}else if(dir==3){
+			break;
+		case(3):
 			direction=WindDirection.south;
-		}else{
+			
+		case(4):
 			direction=WindDirection.west;
 		}
 		return direction;
 	}
 	
-	private boolean isInBoardRange(int horizontal, int vertical){
+	@ForTestingOnly
+	public boolean isInBoardRange(int horizontal, int vertical){
 		
 		if((horizontal==0 && vertical==0) || (horizontal==2 && vertical ==2) || (horizontal==4 && vertical !=3)){
 			return false;}
@@ -110,6 +115,10 @@ public class Board {
 		}
 		
 		return neighbourSquares;
+	}
+	
+	public WindDirection getWindDirection(){
+		return windDirection;
 	}
 
 }

@@ -29,9 +29,9 @@ public class SquareTest {
 		assertTrue(square.getVerticalPosition()==2);
 		assertTrue(square.countAmoebas()==0);
 		assertTrue(square.countTotalFood()==6);
-		assertTrue(square.countFood("red")==2);
-		assertTrue(square.countFood("blue")==2);
-		assertTrue(square.countFood("green")==2);
+		assertTrue(square.countFood("R")==2);
+		assertTrue(square.countFood("B")==2);
+		assertTrue(square.countFood("G")==2);
 		
 		return square;
 	}
@@ -48,20 +48,20 @@ public class SquareTest {
 	@Given("newSquare")
 	public ISquare testAddFood(ISquare square){
 		
-		square.addFood("red", 2);
-		square.addFood("blue", 3);
-		square.addFood("green",1);
-		assertTrue(square.countFood("red")==4);
-		assertTrue(square.countFood("blue")==5);
-		assertTrue(square.countFood("green")==3);
+		square.addFood("R", 2);
+		square.addFood("B", 3);
+		square.addFood("G",1);
+		assertTrue(square.countFood("R")==4);
+		assertTrue(square.countFood("B")==5);
+		assertTrue(square.countFood("G")==3);
 		assertTrue(square.countTotalFood()==12);
 		return square;
 	}
 	
 	@Given("newSquare")
 	public ISquare testEatFoodStuff(ISquare square){
-		square.eatFoodStuff("red");
-		assertTrue(square.countFood("red") ==2);
+		square.eatFoodStuff("R",3);
+		assertTrue(square.countFood("R") ==2);
 		assertTrue(square.countTotalFood()==3);
 		
 		return square;

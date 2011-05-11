@@ -49,7 +49,7 @@ public class NullSquareTest {
 	
 	@Given("newNullSquare")
 	public void testToString(ISquare nullSquare){
-		assertTrue(nullSquare.toString().equals(" |____________| "));
+		assertTrue(nullSquare.toString().equals("|_________________________________| "));
 	}
 	
 	@Given("newNullSquare")

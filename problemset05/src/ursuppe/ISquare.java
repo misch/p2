@@ -20,7 +20,7 @@ public interface ISquare {
 
 	public int getVerticalPosition();
 
-	public void eatFoodStuff(String string);
+	public void eatFoodStuff(String string, int amount);
 
 	public void addFood(String colour, int quantity);
 

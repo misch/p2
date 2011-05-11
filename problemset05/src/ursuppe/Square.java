@@ -5,9 +5,9 @@ import java.util.ArrayList;
 public class Square implements ISquare {
 	
 	public enum FoodStuff { 
-		green("green"),
-		blue("blue"),
-		red("red");
+		green("G"),
+		blue("B"),
+		red("R");
 		private String representation;
 		FoodStuff(String s) { this.representation = s; }
 		public String toString() { return this.representation; }
@@ -15,7 +15,6 @@ public class Square implements ISquare {
 	
 	private ArrayList<Amoeba> amoebas=new ArrayList<Amoeba>();
 	private Game game;
-	//DR remove unused variables!
 	private int horizontalPosition;
 	private int verticalPosition;
 	private ArrayList<FoodStuff> food =new ArrayList<FoodStuff>();
@@ -58,16 +57,17 @@ public class Square implements ISquare {
 	}
 	
 	public void addFood(String colour, int quantity){
-		if(colour.equals("red"))
+		if(colour.equals("R"))
 			addRedFood(quantity);
-		else if(colour.equals("blue"))
+		else if(colour.equals("B"))
 			addBlueFood(quantity);
-		else if(colour.equals("green"))
+		else if(colour.equals("G"))
 			addGreenFood(quantity);
 	}
 	
 	public String toString(){
-		return " ["+amoebas+","+countFood("green")+"G "+countFood("blue")+"B "+countFood("red")+"R ] ";
+		String format="[ %1$-20s, %2$sG %3$sB %4$sR  ] ";
+		return String.format(format, amoebas, countFood("G"),countFood("B"),countFood("R"));
 	}
 	public int countFood(String colour){
 		int count=0;
@@ -101,9 +101,9 @@ public class Square implements ISquare {
 		return amoebas.size();
 	}
 
-	public void eatFoodStuff(String colour) {
+	public void eatFoodStuff(String colour, int amount) {
 		int counter=0;
-		while(counter<3){
+		while(counter<amount){
 			int index =(int) (food.size() * Math.random());
 			if(!food.get(index).toString().equals(colour)){
 				food.remove(index);
