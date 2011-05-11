@@ -4,12 +4,14 @@ import java.util.*;
 
 import ursuppe.Board.WindDirection;
 
-/*DR Accepted!
+/*DR Accepted! You passed problemset 5.2!
  * 
- * All in all it's a pretty good solution
- * Just redo your toString and add some more tests 
- * (as a general rule one test class for each class and one test for each non-trivial public method)
- * 
+ * Everything looks ok: 
+ * all the different phases are in your code and you made a good decision for your genecards (a separate class ^^)
+ * It would be nice to interact (really play the game) instead of just watching but thats another point
+ * But you should at least show if a player buys a gene or decides to move instead of drift!
+ * Also I realy like your test coverage it's just awesome!
+ * Keep up the good work, can't wait for a GUI (and some sketches)
  */
 public class Game {
 	
@@ -36,6 +38,7 @@ public class Game {
 		pool=new GenePool(this);
 	}
 
+	//DR probably you can add the general system out and each phase knows his number?
 	public void play() {
 		System.out.println(this);
 		playFirstPhase();
