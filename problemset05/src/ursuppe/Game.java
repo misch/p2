@@ -2,6 +2,7 @@ package ursuppe;
 
 import java.util.*;
 
+
 import ursuppe.Board.WindDirection;
 
 /*DR Accepted! You passed problemset 5.2!
@@ -40,26 +41,30 @@ public class Game {
 
 	//DR probably you can add the general system out and each phase knows his number?
 	public void play() {
-		System.out.println(this);
 		playFirstPhase();
 		boolean firstRound=true;
 		while(playerManager.getWinner()==null){
-			playSecondPhase1();
-			System.out.println("Phase 1 \n"+this);
-			playSecondPhase2(firstRound);
-			System.out.println("Phase 2 \n"+this);
-			playSecondPhase3();
-			System.out.println("Phase 3 \n"+this);
-			playSecondPhase4();
-			System.out.println("Phase 4 \n"+this);
-			playSecondPhase5();
-			System.out.println("Phase 5 \n"+this);
-			playSecondPhase6();
-			System.out.println("Phase 6 \n"+this);
+			
+			playOneRound(firstRound);
 			firstRound=false;
 		}
 		setWinner();
-		System.out.println(winner + " wins!");
+		Output.println(winner + " wins!");
+	}
+
+	private void playOneRound(boolean firstRound) {
+		playSecondPhase1();
+		Output.println("Phase 1 \n"+this);
+		playSecondPhase2(firstRound);
+		Output.println("Phase 2 \n"+this);
+		playSecondPhase3();
+		Output.println("Phase 3 \n"+this);
+		playSecondPhase4();
+		Output.println("Phase 4 \n"+this);
+		playSecondPhase5();
+		Output.println("Phase 5 \n"+this);
+		playSecondPhase6();
+		Output.println("Phase 6 \n"+this);
 	}
 	@ForTestingOnly
 	public void playSecondPhase6() {

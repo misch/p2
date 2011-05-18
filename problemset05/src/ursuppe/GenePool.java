@@ -17,7 +17,7 @@ public class GenePool {
 
 
 	private void initGenes() {
-		availableGenes.add(new IntelegenceGene(this.game));
+		availableGenes.add(new IntelligenceGene(this.game));
 		availableGenes.add(new LifeExpectancyGene(this.game));
 		availableGenes.add(new DivisionRateGene(this.game));
 		availableGenes.add(new FrugalityGene(this.game));
