@@ -1,0 +1,18 @@
+##You passed problemset08
+##
+##You did draw some nice sketches with some different ideas and I really like your decision (Picture 2)
+##The idea to show only the current "Phase Actions" is brilliant and I'd really love to see this GUI for real
+##(sadly it's no task this year)
+##The prototype is also very well done and thanks to the lines you can really get what happens if you click 
+##on something and how the board changes.
+##
+##Your GUI does what it has to (although it's minimal but your boss is stupid and does not care)
+##and I really like your GUI code it's clean and no mess (can't tell it would be like that if you'd make the real one^^)
+##Also you used a scroll pane which is not that simple - so well done and you passed
+
+## Our favorite GUI
+
+	
+Our favorite one is the GUI drawed in picture 2.
+It does not show everything that can be done but only the current "Phase Actions," which means that the user automatically sees, what he can do at every stage of the game.
+It also shows all the information about all players and the current score.

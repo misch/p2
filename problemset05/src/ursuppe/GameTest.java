@@ -149,6 +149,7 @@ public class GameTest {
 	@Given("newGame")
 	public Game testPlay(Game game){
 		
+		Output.setOutput(new NullOutput());
 		game.play();
 		
 		assertNotNull(game.getWinner());
