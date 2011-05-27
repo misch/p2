@@ -25,8 +25,13 @@ group14              ok    wow   ok    ok    wow   ok    ok    ++     ok    ++  
 group15              ok    ok    ok    ok    ok    ok    ok    wow    ok    --    --    admitted
 group19              ok    ok    wow   ok    ok    ok    ok    wow    ok    wow   --    admitted
 group20              ok    ok    ok    ok    ok    ok    ok    ok     ok    --    ok    admitted
+<<<<<<< HEAD
 group23              ok    ok    ok    nef   ok    ok    --    ok     ok          --
 group24              fail  ok    ok    nef   nef   ok    --    --     ok    --    --
+=======
+group23              ok    ok    ok    nef   ok    ok    --    ok     ok    ok    --
+group24              fail  nef   ok    nef   nef   ok    --    --     --    --    --
+>>>>>>> 0f8feaf2fa69f7ce0da240a940f9d85e2e907bf9
 group25              ok    ok    ok    ok    ok    ok    ok    ok     ok    wow   ok    admitted
  
   ok:   accepted.
