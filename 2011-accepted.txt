@@ -17,7 +17,7 @@ group05              ok    ok    ok    ok    ok    ok    ok    ok     --    nef 
 group06              ok    ok    ok    nef   ok    ok    nef   ok     ok    --    --
 group07              ok    ok    ok    ok    ok    ok    ok    ok     ok    --    ok    admitted
 group08              ok    ok    ok    ok    ok    ok    --    ok     ok    --    ++(27.05)
-group10              ok    ok    nef   ok    ok    ok    ok    ok     nef   ++    wow   admitted
+group10              ok    ok    nef   ok    ok    ok    ok    ok     nef   ++    wow
 group11              ok    wow   ok    ok    ok    ok    ok    ++     ok    --    --
 group12              ok    ok    ok    ok    --    ok    --    --     --    --    --
 group13              ok    wow   ok    wow   wow   ok    ok    wow    ok    --    --    admitted
